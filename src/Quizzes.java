@@ -30,7 +30,7 @@ public class Quizzes extends JFrame {
         setTitle("Quiz Program");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
-        setSize(800, 400);
+        setSize(850, 300);
         setLocationRelativeTo(null);
 
         JPanel mainPanel = new JPanel();
@@ -73,7 +73,7 @@ public class Quizzes extends JFrame {
     }
 
     private void startQuiz() {
-        List<Question> questions = readQuestionsFromFile(".\\files\\test.txt");
+        List<Question> questions = readQuestionsFromFile(".\\files\\questions.txt");
         if (questions.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No questions found in the file.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -160,7 +160,7 @@ public class Quizzes extends JFrame {
 
     private void updateQuestionUI(Question question) {
 
-        questionLabel.setText("<html><body style='width: 620px; padding: 10px '>" + answeredCounter++ +"/"+numberOfQuestions+":"+ question.getQuestion() + "</body></html>");
+        questionLabel.setText("<html><body style='width: 650px; padding: 10px '>" + answeredCounter++ +"/"+numberOfQuestions+":"+ question.getQuestion() + "</body></html>");
         questionLabel.setVerticalAlignment(JLabel.TOP);
 
         if (answerCheckBoxes != null) {

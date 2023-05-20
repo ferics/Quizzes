@@ -1,0 +1,6 @@
+Q: In the SAP Best Practices Time Recording - ProjectBased Services (J12) scenario, which of the following settings can be enabled via SSCUI Maintain Data Entry Profiles? (3 correct)
+1. Switch on the field 'All Project Phases' to enable timesheet posting to be made regardless of project status
+2. Enable the field 'WBS Element' to allow users to specify the project task they are recording time against
+3C. Switch on or off the approval process
+4C. Enable the field 'Work Location' to allow users to enter work location when recording the time in timesheet application
+5C. Switch on the field 'Extensibility Mode' to enable the extensibility of the timesheet application
