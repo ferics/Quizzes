@@ -1,18 +1,503 @@
-Q: Question 1
-1C. Option 1
-2. Option 2
-3C. Option 3
-4. Option 4
-5C. Option 5
+Q:  Which of the following Business Add-Ins (BAdls) are available for the Fiori app Create Internal Projects? (3 correct)
+1C. Authorization to Change Project Stage
+2. Project Element Determination
+3C. Send email
+4. Project Validation
+5C. Generate Project IDs
 
-Q: Question 2
-1. Option 1
-2C. Option 2
+Q:  How are analytics capabilities built into SAP S/4HANA Cloud?
+1C. They are embedded in the same technical stack as the application
+2. They are installed on a dedicated SAP Fiori frontend server
+3. They are installed as an add-on to the application
+4. They are extended by the user to a dedicated SAP Fiori frontend server
 
-Q: Question 3
-1. Option 1
-2C. Option 2
-3. Option 3
-4. Option 4
-5. Option 5
+Q:  Which resources do you use when planning a Fit-to-Standard workshop? (2 correct)
+1. Legacy system configurations
+2. Business process test automates
+3C. Test scripts
+4C. Business process flows
+
+Q:  How can business users create new analytics content? (3 correct)
+1C. Combine current and historical data
+2C. Create additional key figures in existing data sources
+3. Change underlying database tables of standard data sources
+4. Change existing data sources by adding filters
+5C. Create new data sources via joins of standard data sources
+
+Q:  Which of the following functions are available when you create billing documents from the billing due list items? (3 correct)
+1C. Create an individual billing document for each processed billing due list item
+2. Run parallel processing for billing document creation
+3. Log billing document information messages
+4C. Create a collective billing document for multiple billing due list items
+5C. View billing document details
+
+Q:  Which activities can you execute in the Maintain Business Roles SAP Fiori app? (2 correct)
+1C. Assign business catalogs to a business role
+2. Maintain catalog roles
+3. Assign PFCG profiles to a business role
+4C. Maintain restrictions
+
+Q:  What are your options if an out-of-the-box integration between SAP S/4HANA Cloud and another SAP solution is NOT available? (2 correct)
+1C. Integration tools
+2C. Whitelisted APIs
+3. Unrestricted firewall
+4. Infrastructure as a Service
+
+Q:  Which of the following contract types are available when defining how to bill the customer? (3 correct)
+1C. Periodic services
+2C. Time and expenses
+3. Periodic billing
+4C. Fixed price
+5. Time based
+
+Q: Which of the following KPI cards in the advanced version of Fiori app Resource Management for Projects allow you to access the Manage Project Staffing app? (2 correct)
+1C. Open Resource Requests
+2. Average Resource Utilization
+3. Resources with Free Capacity
+4C. Staffed and Required Hours by Role
+
+Q: Which apps enable you to access the queries related to Margin Analysis & Utilization Analysis? (2 correct)
+1C. Query Browser
+2C. View Browser
+3. Create Customer Projects
+4. Custom CDS Views
+
+Q: What is the purpose of the Starter system in the SAP S/4HANA Cloud implementation project?
+1. To configure the customer's personalized solution for demonstration and testing during the Realize phase
+2C. TO demonstrate SAP Best Practices processes in a preconfigured system and identify customer personalization requirements
+3. To conduct a blueprint workshop to identify all customer requirements for a completely customized solution
+4. TO demonstrate the customer's personalized solution, including process flows, the organizational structure, and authorizations
+
+Q: Which adjustments can be made using Custom Analytical Queries? (3 correct)
+1C. Trace development objects in a query
+2C. Convert unit measures for fields in the Data Source
+3C. Suppress rows or columns containing zeros
+4. Modularize your custom code for use in queries
+5. Copy a query from an SAP-delivered standard query
+
+Q: In which implementation phase do you perform data load preparation?
+1C. Explore
+2. Prepare
+3. Deploy
+4. Realize
+
+Q: Under which circumstances would the Resourse Manager receive multiple resource requests for the same project or work package? (2 correct)
+1. A resource request for a work package may require multiple resources.
+2C. A project usually consists of multiple work packages, which may require multiple roles.
+3C. A work package can contain more than one request for the same project role.
+4. A resource request can represent multiple project roles that need to be staffed.
+
+Q: Which parameters are mandatory to schedule a revenue recognition job in Fiori app Run Revenue Recognition - Projects? (3 correct)
+1. Project Definition
+2C. Company code
+3. WBS Element
+4C. Ledger
+5C. To period
+
+Q: Based on the SAP Activate methodology, which activities must you perform in the Explore phase? (2 correct)
+1. Use the Quality system to demonstrate SAP Best Practices processes
+2C. Use the Starter system to demonstrate SAP Best Practices processes
+3. Configure the organizational structure and chart of accounts in the system
+4C. Conduct the Fit-to-Standard workshops to enable customers and identify gaps
+
+Q: Which Fiori app enables Project Managers to view and analyze the staffing situation for their projects?
+1C. Project Staffing Analysis
+2. Margin Analysis
+3. Project Profitability Overview
+4. Utilization Analysis
+
+Q: Which types of datasets are required for predictive scenarios? (2 correct)
+1C. Training Dataset
+2. Active Dataset
+3. Apply Dataset
+4C. Testing Dataset
+
+Q: Which of the following are mandatory fields when running a settlement for an internal project? (3 correct)
+1. Test Run
+2. Posting period
+3C. Processing type
+4C. Fiscal Year
+5C. Settlement period
+
+Q: In the SAP Best Practices Internal Project Management - ProjectBased Services (1A8) scenario, which account assignment categories are supported when maintaining settlement rules? (3 correct)
+1. Project
+2C. WBS element
+3C. Cost center
+4. Network
+5C. G/L account
+
+Q: What are key activities of the Prepare phase of the SAP Activate methodology? (3 correct)
+1C. Project setup
+2C. Customer self-enablement
+3. Data migration
+4C. Starter system provisioning
+5. User training
+
+Q: Which components are required to integrate SAP S/4HANA Cloud with SAP Project Companion? (3 correct)
+1. SAP CoPilot
+2C. SAP Cloud Platform Mobile Services subscription
+3C. SAP Cloud Platform Identity Authentication
+4C. SAP Cloud Platform consumer account
+5. SAP Concur
+
+Q: Which tasks can the Project Manager perform through Fiori app Release Billing Proposals - Due Today? (2 correct)
+1. Delete billing proposals
+2C. Edit billing proposals
+3. Create billing document
+4C. Postpone billing proposal
+
+Q: Which apps can be accessed from the KPI cards in the advanced version of Fiori app Resource Management for Projects? (2 correct)
+1. Manage Project Assignments
+2C. Manage Project Staffing
+3C. Manage Resource Utilization
+4. Manage Resource Requests
+
+Q: What determines the set of data migration objects available from the Migrate Your Data application?
+1. The selected target fields
+2C. The selected business scenarios
+3. The customer legacy system
+4. The selected source system
+
+Q: Which of the following are primary tasks of Project Managers? (3 correct)
+1. Create customer invoice
+2C. Plan work packages and efforts
+3C. Maintain project staffing
+4C. Maintain project billing
+5. Create billing proposal
+
+Q: Which of the following does the CDS view I_JournalEntryltemCube allow you to report on? (2 correct)
+1. The project manager, project accountant, and project partner for the project actual quantities
+2C. The actual amounts per project, WBS element and G/L account in company code currency
+3. Your pricing master data for activity types and service cost levels
+4C. The customer, functional area, company code and G/L account for project actual amounts and quantities
+
+Q: Based on the SAP Activate methodology, which of the following tests are formal, and therefore must be documented during implementation? (2 correct)
+1C. Business process test
+2. Unit test
+3C. Integration test
+4. String test
+
+Q: What tasks can the Resource Manager perform through the Fiori apps that are available in the advanced version of Resource Management? (2 correct)
+1C. Staff resource requests for project roles
+2. Transfer actual working times
+3. Maintain skills for work items
+4C. Monitor and analyze resource utilization
+
+Q: What are the prerequisites for using the SAP Fiori Test Your Processes app? (2 correct)
+1. The productive system is connected to the implementation landscape
+2. The test scripts are uploaded in the productive system
+3C. SAP Best Practices are activated in the quality system
+4C. The quality system is connected to the Test Execution Service on SAP Cloud Platform
+
+Q: Which activity do you perform during the data load with the Generate Intercompany Billing Request app?
+1C. Schedule the generation of a Debit Memo Request for intercompany billing
+2. Generate the intercompany invoice
+3. Generate the intercompany debit memo
+4. Schedule the generation of an Invoice for intercompany billing
+
+Q: Which of the following tasks can be performed through the Billing Request Editor? (2 correct)
+1. Release billing proposal
+2. Remove billing block
+3C. Change debit memo request
+4C. Change billing document request
+
+Q: Which replication scenarios are supported through the integration between SAP S/4HANA Cloud and SAP SuccessFactors Employee Central? (3 correct)
+1. Bank data
+2C. Employee data
+3. WBS element data
+4C. Cost center data
+5C. Timesheet data
+
+Q: Where do you enable a customer-specific field to be available for UIs and reports relevant for the same business context?
+1. In the Maintain SAP Business Technology Platform Extensions app
+2C. In the Custom Fields and Logic app
+3. In the Extensibility Cockpit app
+4. In the Runtime Authoring mode
+
+Q: Which activity do you perform during the data load preparation?
+1C. Fill in migration templates with legacy data
+2. Resolve data issues from the simulation process
+3. Define specifications for data extraction on legacy system
+4. Simulate data load in the new cloud system
+
+Q: Which Fiori app can be used by employees to record time on work packages and work items for customer and internal projects?
+1. Project Timesheet
+2. Maintain Timesheet
+3C. Manage My Timesheet
+4. My Timesheet
+
+Q: In what scenario will there be multiple resource requests for the same project role?
+1. Multiple skills have been assigned to the same project role.
+2. The resource assigned to the work package consists of multiple individual employees.
+3C. Multiple work items have been created for the same project role.
+4. The estimated effort for the project role exceeds the work package duration.
+
+Q: What are the steps for conducting automated business process testing? (3 correct)
+1. Create a test system
+2C. Create a test plan
+3C. Correct and rerun failed test processes
+4. Assess data management
+5C. Run the test
+
+Q: You want to authenticate employees in SAP Cloud Identity. In which app can you download a .CSV file with the list of users?
+1C. Maintain business users
+2. Maintain catalog roles
+3. Maintain business roles
+4. Maintain communication users
+
+Q: A customer needs detailed customization to the standard forms and email templates. What solution should the consultant propose?
+1. Create a custom Ul with the Custom Fields and Logic app
+2. Use the corresponding configuration items to modify elements of the form template
+3C. Use the Adobe Livecycle Designer tool to edit a standard template
+4. Use the Output Management apps to customize a standard template
+
+Q: In what phase of the SAP Activate methodology do you test the business processes?
+1. Deploy
+2. Prepare
+3C. Realize
+4. Explore
+
+Q: Which steps are required for data load preparation? (3 correct)
+1C. Design programs or reports required to extract data and initiate data cleansing
+2C. Determine data requirements based on scenario reviews
+3. Perform full data load to determine the required loading times
+4C. Review data load templates and determine data mapping
+5. Determine if public or private cloud is required for data migration
+
+Q: In case temporary adjustments have been entered, which of the following tasks can be performed to adjust the recognized revenue? (2 correct)
+1. Recalculate planned values at work package level
+2C. Execute a periodic revenue recognition run
+3C. Recalculate revenue recognition for the affected WBS elements
+4. Adjust POC manually
+
+Q: How is the project sales order created for customer engagements?
+1. Manually before creating the customer project
+2. Automatically after setting the project to "in execution"
+3C. Automatically after maintaining project billing
+4. Manually after creating the customer project
+
+Q: How is the productive system configured? (2 correct)
+1. Through the Solution Documentation component of the SAP Solution Manager
+2C. Through Central Business Configuration (CBC) in SAP Business Technology Platform
+3. Via the Cloud Application Lifecycle Management (CALM) Implementation Portal
+4C. Through transports from the quality system
+
+Q: If an intercompany invoice is posted automatically to the accounts payables of the ordering company, which activities have already occurred? (2 correct)
+1C. A billing document with reference to the debit memo request was created by the delivering company.
+2. The event-based revenue recognition has been completed for the project.
+3. A consumption material was requested for a customer project and a purchase order was created and sent to the supplier.
+4C. The delivering company posted expenses and recorded time on the customer project.
+
+Q: Which of the following are customizations that key users can make in the Custom Fields and Logic app to extend the Manage My Timesheet app? (2 correct)
+1C. Regroup and rename fields
+2. Enable confirmation e-mails
+3. Integrate third-party applications
+4C. Add additional fields to forms and tables
+
+Q: Which technology is used to integrate SAP S/4HANA Cloud with other SAP and non-SAP applications?
+1C. Direct connectivity
+2. SAP Change and Transport System
+3. SQLConnect function
+4. SAP Landscape Transformation Replication Server
+
+Q: When can you add relationships in the organizational structure in SAP Central Business Configuration? (2 correct)
+1C. Before defining the primary finance settings
+2. Before initial content activation
+3C. During content activation
+4. After content activation
+
+Q: In the SAP Best Practices Time Recording - ProjectBased Services (J12) scenario, which of the following settings can be enabled via SSCUI Maintain Data Entry Profiles? (3 correct)
+1. Switch on the field 'All Project Phases' to enable timesheet posting to be made regardless of project status
+2. Enable the field 'WBS Element' to allow users to specify the project task they are recording time against
+3C. Switch on or off the approval process
+4C. Enable the field 'Work Location' to allow users to enter work location when recording the time in timesheet application
+5C. Switch on the field 'Extensibility Mode' to enable the extensibility of the timesheet application
+
+Q: How is the actual availability of a resource for project assignments calculated?
+1. Available hours = Staffed hours - Free hours
+2C. Free hours = Available hours - Staffed hours
+3. Free hours = Staffed hours - Available hours
+4. Available hours = Free hours - Staffed hours
+
+Q: What are the available methods through which you can fill staging tables in the SAP HANA database of the target system? (3 correct)
+1C. SAP HANA Smart Data Integration (SDI)
+2. SAP Smart Data Access
+3C. XML templates
+4C. Customer's ETL tools
+5. SAP SQL Anywhere
+
+Q: How does the system determine the default currency for an internal project?
+1. From the user default settings
+2. From the controlling area of the profit center
+3. From the settings of the Create Internal Project app
+4C. From the company code of the service organization
+
+Q: You are reordering purchase order items with reference to a purchasing document that already exists. Which of the following documents can be used? (3 correct)
+1C. A purchase order item
+2C. A purchase contract itemD
+3C. An info record
+4. An Intrastat report
+5. service entry sheet
+
+Q: Which CDS queries allow you to analyze Customer Projects? (2 correct)
+1C. C_EngmtProjWorkAnIysQuery
+2. C_EngmntProjStaffingAnlysQuery
+3. C_EngmtProjComAnlysQuery
+4C. C_EngmtProjMargAnl sQuery
+
+Q: What sales document can be transformed into a customer invoice?
+1. Billing document
+2. Request for quotation
+3. Credit memo request
+4C. Debit memo request
+
+Q: Why is de-coupling your extensions from SAP S/4HANA Cloud required? (2 correct)
+1. To enhance existing functionality within the application itself
+2. To allow customers to take advantage of predefined user exits
+3C. To guarantee the stability of the system
+4C. To ensure extensions do not conflict with SAP software updates
+
+Q: In the SAP Best Practices Intercompany Processes - Project-Based Services (16T) scenario, how is the intercompany sales order created?
+1. Manually for each project engagement
+2. Manually as a one time activity in your SAP S/4HANA Cloud tenant
+3C. Manually as a one time activity for each delivering company
+4. Manually as a one time activity for each distinct project customer
+
+Q: What can you use the View Browser app to do?
+1. Launch analytic cloud stories
+2C. Display custom SAP views irrespective of draft or released status
+3. Create, edit, and delete CDS views
+4. Get a list of all available analytical CDS views and their artifacts
+
+Q: Which organizational units are directly linked to a plant? (2 correct)
+1C. Company code
+2. Credit control area
+3C. Storage location
+4. Sales office
+
+Q: What tasks are listed by default for contingent workers in the My Tasks side panel of the Manage My Timesheet app?
+1. None. Tasks must be manually added using Maintain Data Entry Profiles.
+2. Accounting objects, including WBS element and cost center
+3C. None. Tasks must be manually added using Manage My Tasks.
+4. Non-project-related tasks, including administration, training, and travel time
+
+Q: What SAP solution provides collaboration capabilities to increase workforce productivity?
+1. SAP Concur
+2C. SAP Jam
+3. SAP SuccessFactors Employee Central
+4. SAP Fieldglass
+
+Q: Which of the following business roles are required to analyze the Margin & Work Analysis for Projects? (2 correct)
+1C. Project Manager - Commercial Services
+2. Analysis Accountant
+3. Margin Analyst
+4C. Analytics Specialist
+
+Q: Which tasks can the Project Manager perform through Fiori app Nofity Missing Time? (3 correct)
+1. Approve a project member's timesheet.
+2C. Check a project member's time recording status.
+3. Change the sender e-mail address.
+4C. Edit a project member's timesheet.
+5C. Navigate to the employee factsheet.
+
+Q: Which of the following actions are possible directly through Fiori app Manage Billing Documents? (3 correct)
+1C. Display billing documents
+2C. Post billing documents
+3C. Cancel billing documents
+4. Send for approval
+5. Create billing documents
+
+Q: You are reviewing the Open Resource Requests KPI card in the Fiori app Resource Management for Projects. What are the possible urgency groupings? (2 correct)
+1. Very High
+2C. Overdue
+3C. Upcoming
+4. Critical
+
+Q: Which functionalities are supported by the SAP Fiori Test Your Processes app? (2 correct)
+1. Migrate test plans for execution
+2. Import custom test plans
+3C. Create or change test plans
+4C. Remediate failed test scenarios
+
+Q: In which task is the preliminary configuration information gathered to help the configuration experts gain insight into the customer's current processes?
+1. Fit-to-Standard Workshops
+2. Digital Discovery Assessment
+3. Solution Definition
+4C. Business Driven Configuration Assessment
+
+Q: Which of the following are KPI cards in Fiori app Resource Management for Projects? (3 correct)
+1C. Overbooked Resources
+2C. Average Resource Utilization
+3C. Resources with Free Capacity
+4. Contingent Resources
+5. Work Package Utilization
+
+Q: What are the available options for service entry sheet creation? (2 correct)
+1. Automatic creation via the billing plan schedule
+2. Manual creation after time recording approval
+3C. Import service entry sheets
+4C. Automatic creation upon time recording approval
+
+Q: In the Fiori app Manage My Timesheet, which actions are possible in the My Tasks side panel? (2 correct)
+1C. View the total number of hours recorded per task
+2. View the approved and rejected time entries
+3. Create, edit, and delete task entries for the selected week
+4C. Sort by recently used tasks
+
+Q: Which processes are covered in the SAP Best Practices Internal Project Management - Project- Based Services (1A8) scenario? (2 correct)
+1. Perform margin analysis
+2C. Maintain work package staffing
+3. Capture service units
+4C. Perform period-end closing activities
+
+Q: What are customers able to scope in SAP S/4HANA Cloud with Central Business Configuration (CBC)? (2 correct)
+1C. Countries where business processes will run
+2. Public sector processes
+3C. Pre-defined scenario bundles
+4. Non-standard scenarios
+5. Scope extensions
+
+Q: Which of the following are outcomes of the Fit-to-Standard workshop? (3 correct)
+1C. Expert configuration definition
+2. Finalized scope and integration requirements
+3. Identification of source code changes
+4C. Extensibility solutions to close gaps
+5C. Solution impact on business processes
+
+Q: Which of the following are capabilities of the Fiori apps used in the SAP Best Practices Service and Material Procurement - Project-Based Services (J13) scenario? (3 correct)
+1C. Create supplier invoices
+2C. Create purchase requisitions
+3. Create timesheet entries
+4C. Create purchase orders
+5. Create reservations
+
+Q: What Fiori app enables the Resource Manager to monitor aggregated KPIs for the resources and resource requests for which they are responsible?
+1C. Resource Management for Projects
+2. Check and Transfer Staffing Assignments
+3. Analyze Resource Utilization
+4. Analyze Project Staffing
+
+Q: Which of the following are benefits of the SAP Best Practices Event-Based Revenue Recognition - ProjectBased Services (1IL) scenario? (3 correct)
+1. Reconciliation
+2C. Real-time reporting
+3. Margin calculation
+4C. Full transparency
+
+Q: Which processes are supported by the SAP Best Practice Sales Order Processing - ProjectBased Services (J14) scenario? (2 correct)
+1C. Sales order management
+2C. Billing processing
+3. Intercompany processes
+4. Sales contract management
+
+Q: Which procurement subprocesses are covered by the SAP Best Practices Service and Material Procurement - Project-Based Services 013) scenario? (2 correct)
+1C. Procurement for third-party order processing
+2. Procurement of consigned inventory/subcontracting
+3. Procurement of direct materials
+4C. Procurement of consumable materials
+
+Q: What is the purpose of the SAP Best Practices Intercompany Processes - Project-Based Services (16T) scenario?
+1. Creation of purchase orders and simultaneous creation of sales orders in the delivering company
+2. Posting of the goods issue and simultaneous posting to stock in transit in the receiving company
+3C. Posting of invoices and simultaneous posting to the accounts payable of the ordering company
+4. Creation of the outbound delivery and simultaneous creation of the inbound delivery in the receiving company
 
