@@ -74,14 +74,14 @@ public class Quizzes extends JFrame {
     }
 
     private void startQuiz() {
-        List<Question> questions = readQuestionsFromFile(".\\files\\questions.txt");
+        List<Question> questions = readQuestionsFromFile();
         incorrectIndices = new ArrayList<>();
         if (questions.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No questions found in the file.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        selectedQuestions = selectRandomQuestions(questions, numberOfQuestions);
+        selectedQuestions = selectRandomQuestions(questions);
         if (selectedQuestions.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Insufficient questions to start the quiz.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -144,37 +144,37 @@ public class Quizzes extends JFrame {
     private void finishQuiz() {
         double percentageScore = (double) score / selectedQuestions.size() * 100;
 
-        String resultMessage = "Quiz finished!\n\n" +
+        StringBuilder resultMessage = new StringBuilder("Quiz finished!\n\n" +
                 "Correct answers: " + score + "\n" +
                 "Incorrect answers: " + (selectedQuestions.size() - score) + "\n" +
-                "Percentage: " + String.format("%.2f", percentageScore) + "%\n\n";
+                "Percentage: " + String.format("%.2f", percentageScore) + "%\n\n");
 
         if (percentageScore >= 59) {
-            resultMessage += "Congratulations, you passed!";
-            JOptionPane.showMessageDialog(this, resultMessage, "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon(".\\files\\green-tick.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
+            resultMessage.append("Congratulations, you passed!");
+            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon(".\\files\\green-tick.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
         } else {
-            resultMessage += "Sorry, you did not pass.";
-            JOptionPane.showMessageDialog(this, resultMessage, "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon(".\\files\\red-cross.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
+            resultMessage.append("Sorry, you did not pass.");
+            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon(".\\files\\red-cross.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
         }
 
         if (!incorrectIndices.isEmpty()) {
-            resultMessage = "You answered the following questions incorrectly:\n";
+            resultMessage = new StringBuilder("You answered the following questions incorrectly:\n");
             for (int index : incorrectIndices) {
                 Question question = selectedQuestions.get(index);
-                resultMessage += "\nQuestion: " + question.getQuestion() + "\n";
+                resultMessage.append("\nQuestion: ").append(question.getQuestion()).append("\n");
                 List<String> options = question.getOptions();
                 for (int i = 0; i < options.size(); i++) {
                     if (question.isCorrectOption(i)) {
-                        resultMessage += "[✔] ";
+                        resultMessage.append("[✔] ");
                     } else {
-                        resultMessage += "[❌] ";
+                        resultMessage.append("[❌] ");
                     }
                     if (options.get(i).contains("C. ")){
-                        resultMessage += options.get(i).replace("C. ", "") + "\n";
-                    } else { resultMessage += options.get(i).replace(". ", "") + "\n"; }
+                        resultMessage.append(options.get(i).replace("C. ", "")).append("\n");
+                    } else { resultMessage.append(options.get(i).replace(". ", "")).append("\n"); }
                 }
             }
-            JOptionPane.showMessageDialog(this, resultMessage, "Incorrect Answers", JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Incorrect Answers", JOptionPane.INFORMATION_MESSAGE);
         }
 
         enableAnswerOptions(false);
@@ -231,9 +231,10 @@ public class Quizzes extends JFrame {
         }
     }
 
-    private List<Question> readQuestionsFromFile(String fileName) {
+    private List<Question> readQuestionsFromFile() {
         List<Question> questions = new ArrayList<>();
 
+        String fileName = ".\\files\\questions.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             Question question = null;
@@ -265,15 +266,15 @@ public class Quizzes extends JFrame {
         return questions;
     }
 
-    private List<Question> selectRandomQuestions(List<Question> questions, int count) {
+    private List<Question> selectRandomQuestions(List<Question> questions) {
         List<Question> selectedQuestions = new ArrayList<>();
         Random random = new Random();
 
-        if (questions.size() <= count) {
+        if (questions.size() <= numberOfQuestions) {
             return questions;
         }
 
-        for (int i = 0; i < count; i++) {
+        for (int i = 0; i < 10; i++) {
             int index = random.nextInt(questions.size());
             selectedQuestions.add(questions.get(index));
             questions.remove(index);
