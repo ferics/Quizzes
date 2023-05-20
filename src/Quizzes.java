@@ -50,23 +50,11 @@ public class Quizzes extends JFrame {
         buttonPanel.add(submitButton);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
-        startButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                startQuiz();
-            }
-        });
+        startButton.addActionListener(e -> startQuiz());
 
-        submitButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                submitQuiz();
-            }
-        });
+        submitButton.addActionListener(e -> submitQuiz());
 
-        previousButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                goBackToPreviousQuestion();
-            }
-        });
+        previousButton.addActionListener(e -> goBackToPreviousQuestion());
 
         add(mainPanel);
 
