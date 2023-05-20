@@ -14,6 +14,7 @@ import static java.awt.Image.SCALE_SMOOTH;
 
 public class Quizzes extends JFrame {
     private List<Question> selectedQuestions;
+    private List<Integer> incorrectIndices;
     private int currentIndex;
 
     private int score = 0;
@@ -74,6 +75,7 @@ public class Quizzes extends JFrame {
 
     private void startQuiz() {
         List<Question> questions = readQuestionsFromFile(".\\files\\questions.txt");
+        incorrectIndices = new ArrayList<>();
         if (questions.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No questions found in the file.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
@@ -107,6 +109,9 @@ public class Quizzes extends JFrame {
 
             if (checkBox.isSelected() != isCorrect) {
                 allCorrect = false;
+                if (!incorrectIndices.contains(currentIndex)) {
+                    incorrectIndices.add(currentIndex);
+                }
             }
         }
 
@@ -150,6 +155,26 @@ public class Quizzes extends JFrame {
         } else {
             resultMessage += "Sorry, you did not pass.";
             JOptionPane.showMessageDialog(this, resultMessage, "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon(".\\files\\red-cross.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
+        }
+
+        if (!incorrectIndices.isEmpty()) {
+            resultMessage = "You answered the following questions incorrectly:\n";
+            for (int index : incorrectIndices) {
+                Question question = selectedQuestions.get(index);
+                resultMessage += "\nQuestion: " + question.getQuestion() + "\n";
+                List<String> options = question.getOptions();
+                for (int i = 0; i < options.size(); i++) {
+                    if (question.isCorrectOption(i)) {
+                        resultMessage += "[✔] ";
+                    } else {
+                        resultMessage += "[❌] ";
+                    }
+                    if (options.get(i).contains("C. ")){
+                        resultMessage += options.get(i).replace("C. ", "") + "\n";
+                    } else { resultMessage += options.get(i).replace(". ", "") + "\n"; }
+                }
+            }
+            JOptionPane.showMessageDialog(this, resultMessage, "Incorrect Answers", JOptionPane.INFORMATION_MESSAGE);
         }
 
         enableAnswerOptions(false);
