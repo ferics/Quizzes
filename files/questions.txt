@@ -1,5 +1,5 @@
 Q:  Which of the following Business Add-Ins (BAdls) are available for the Fiori app Create Internal Projects? (3 correct)
-1C. Authorization to Change Project Stage
+1C. Check Authorization to Change Project Stage
 2. Project Element Determination
 3C. Send email
 4. Project Validation
@@ -96,9 +96,10 @@ Q: Which parameters are mandatory to schedule a revenue recognition job in Fiori
 
 Q: Based on the SAP Activate methodology, which activities must you perform in the Explore phase? (2 correct)
 1. Use the Quality system to demonstrate SAP Best Practices processes
-2C. Use the Starter system to demonstrate SAP Best Practices processes
-3. Configure the organizational structure and chart of accounts in the system
-4C. Conduct the Fit-to-Standard workshops to enable customers and identify gaps
+2. Use the Starter system to demonstrate SAP Best Practices processes
+3. Conduct the Digital Discovery Assessment to identify extension requirements.
+4C. Conduct the Fit-to-Standard analysis to gather configuration values.
+5C. Define the organizational structure and chart of accounts.
 
 Q: Which Fiori app enables Project Managers to view and analyze the staffing situation for their projects?
 1C. Project Staffing Analysis
@@ -108,9 +109,9 @@ Q: Which Fiori app enables Project Managers to view and analyze the staffing sit
 
 Q: Which types of datasets are required for predictive scenarios? (2 correct)
 1C. Training Dataset
-2. Active Dataset
+2C. Active Dataset
 3. Apply Dataset
-4C. Testing Dataset
+4. Testing Dataset
 
 Q: Which of the following are mandatory fields when running a settlement for an internal project? (3 correct)
 1. Test Run
@@ -119,7 +120,7 @@ Q: Which of the following are mandatory fields when running a settlement for an 
 4C. Fiscal Year
 5C. Settlement period
 
-Q: In the SAP Best Practices Internal Project Management - ProjectBased Services (1A8) scenario, which account assignment categories are supported when maintaining settlement rules? (3 correct)
+Q: In the SAP Best Practices Internal Project Management - Project-Based Services (1A8) scenario, which account assignment categories are supported when maintaining settlement rules? (3 correct)
 1. Project
 2C. WBS element
 3C. Cost center
@@ -197,16 +198,16 @@ Q: Which activity do you perform during the data load with the Generate Intercom
 
 Q: Which of the following tasks can be performed through the Billing Request Editor? (2 correct)
 1. Release billing proposal
-2. Remove billing block
+2C. Remove billing block
 3C. Change debit memo request
-4C. Change billing document request
+4. Change billing document request
 
 Q: Which replication scenarios are supported through the integration between SAP S/4HANA Cloud and SAP SuccessFactors Employee Central? (3 correct)
-1. Bank data
+1C. Bank data
 2C. Employee data
 3. WBS element data
 4C. Cost center data
-5C. Timesheet data
+5. Timesheet data
 
 Q: Where do you enable a customer-specific field to be available for UIs and reports relevant for the same business context?
 1. In the Maintain SAP Business Technology Platform Extensions app
@@ -320,7 +321,7 @@ Q: How is the actual availability of a resource for project assignments calculat
 4. Available hours = Free hours - Staffed hours
 
 Q: What are the available methods through which you can fill staging tables in the SAP HANA database of the target system? (3 correct)
-1C. SAP HANA Smart Data Integration (SDI)
+1C. SAP Data Services
 2. SAP Smart Data Access
 3C. XML templates
 4C. Customer's ETL tools
@@ -334,16 +335,16 @@ Q: How does the system determine the default currency for an internal project?
 
 Q: You are reordering purchase order items with reference to a purchasing document that already exists. Which of the following documents can be used? (3 correct)
 1C. A purchase order item
-2C. A purchase contract itemD
+2C. A purchase contract item
 3C. An info record
 4. An Intrastat report
 5. service entry sheet
 
 Q: Which CDS queries allow you to analyze Customer Projects? (2 correct)
-1C. C_EngmtProjWorkAnIysQuery
+1C. C_EngmtProjWorkAnlysQuery
 2. C_EngmntProjStaffingAnlysQuery
 3. C_EngmtProjComAnlysQuery
-4C. C_EngmtProjMargAnl sQuery
+4C. C_EngmtProjMargAnlsQuery
 
 Q: What sales document can be transformed into a customer invoice?
 1. Billing document
@@ -500,4 +501,125 @@ Q: What is the purpose of the SAP Best Practices Intercompany Processes - Projec
 2. Posting of the goods issue and simultaneous posting to stock in transit in the receiving company
 3C. Posting of invoices and simultaneous posting to the accounts payable of the ordering company
 4. Creation of the outbound delivery and simultaneous creation of the inbound delivery in the receiving company
+
+Q: What must you create when you build a communication scenario in SAP SAHANA Cloud, public edition? (3 correct)
+1C. Communication user
+2C. Communication system
+3. Communication API
+4C. Communication arrangement
+
+Q: What tasks can you perform from the Display Technical Users app? (2 correct)
+1C. Change the username and password of a print user.
+2C. Lock the initial user account that is delivered with the new system.
+3. Upload a certificate for a communication user
+
+Q: Which activities does the consultant do before the first Fit-to-Standard workshop? (2 correct)
+1C. Review the integration requirements collected from the Digital Discovery Assessment.
+2C. Evaluate the L2 Business-Driven Configuration Questionnaire responses.
+
+Q: What defines the organizational entities that are required in SAP Central Business Configuration? (2 correct)
+1C. System consistency checks
+2C. The selected scope
+3. Data migrated from the legacy system
+
+Q: How can you migrate data to SAP S/4HANA Cloud, public edition? (2 correct)
+1C. Staging database
+2C. File templates
+
+Q: How does an implementation consultant support customer experts during Fit-to-Standard workshops? (2 correct)
+1C. Demonstrate SAP Best Practices in the Starter system. 
+2C. Highlight areas that require configuration or extensibility decisions.
+
+Q: In which scenario would you use Read Access Logging (RAL) to determine the information?
+1C. If a business user accessed a business partner's personal data
+2. If a business user has restrictions when accessing data in an application
+
+Q: What are characteristics of the SAP S/4HANA Migration Cockpit? (2 correct)
+1C. Guidance and simulation of the migration process
+2C. Mapping source values to SAP S/4HANA target values
+
+Q: In the Organizational Structure app in SAP Central Business Configuration, which of the following entities can be added under the Company root node? (2 correct)
+1C. Sales Organization
+2C. Plant
+3. Purchasing Organization
+
+Q: How do you identify errors in a test plan? (2 correct)
+1C. Review failed process steps.
+2C. Review the detailed action log.
+
+Q: Which of the following security measures is the customer responsible for?
+1C. Application-level user management
+
+Q: According to the General Data Protection Regulation (GDPR) laws, when are SAP customers considered data controllers?
+1C. When they use SAP cloud applications
+
+Q: You need to integrate the headquarters of a company running on SAP S/4HANA with a subsidiary running on SAP S/4HANA Cloud, public edition. (2 correct)
+1C. SAP Cloud Connector
+2. SAP Open Connectors
+3C. SAP Cloud Integration
+
+Q: What are main process steps for the Project Billing - Project Based Services? (3 correct)
+1C. Monitor billing elements
+2C. Prepare billing
+3C. Submit billing document request
+4. Create retroactive billing documents
+
+Q: Which of the following changes would prevent SAP from running automated business process tests on your behalf? (2 correct)
+1C. Configuration changes that impact the process flow
+2C. Changes to the data input requirements (custom data fields)
+
+Q: When a customer has a cloud-centric landscape, which technologies should you use to integrate SAP S/4HANA Cloud, public edition with another SAP Cloud solution? (2 correct)
+1C. Predelivered APIs
+2C. SAP Integration Suite
+3. SAP Cloud Connector
+4. SAP Open Connectors
+
+Q: What Billing elements are NOT listed in the 'Manage Project Billing' app? (2 correct)
+1C. Blocked
+2C. Rejected
+3. In Execution
+
+Q: In SAP Central Business Configuration, which changes are possible for the Starter System after content activation? (3 correct)
+1C. Add new organizational entities
+2C. Edit existing product-specific configurations
+3C. Create additional product-specific configurations
+
+Q: What activities are applied to the entire system and cannot be changed after confirmation in SAP Central Business Configuration? (2 correct)
+1C. Group currency
+2C. Fiscal year variant
+
+Q: When do you specify the data retention period in the SAP S/4HANA Migration Cockpit?
+1C. When the project status is "Finished"
+2. When the project status is "Completed"
+3. When the project status is "Closed"
+
+Q: In SAP Central Business Configuration, which activities can you perform in the Product-Specific Configuration Phase? (3 correct)
+1C. Add new sales organizations.
+2C. Add blocking reasons for billing.
+3C. Change approval thresholds.
+4. Modify building blocks.
+5. Create new scope items.
+
+Q: What test process types are available in the Manage Your Test Processes app? (3 correct)
+1C. Standard
+2C. Custom
+3C. Post-upgrade
+4. Regression
+
+Q: What are some responsibilities of a Customer Center of Expertise (CCOE)? (3 correct)
+1C. Conduct risk-based assessments to determine the value of activating new processes.
+2C. Reduce the total cost of ownership for IT.
+3C. Determine KPIs that will support a continuous improvement mindset.
+
+Q: Which of the following can be transported using the Software Collection apps in SAP S/4HANA Cloud, public edition? (2 correct)
+1C. UI variants and changes
+2C. Custom business objects
+3. Custom business roles
+
+Q: Where can you find packaged integration content if there is no SAP Best Practices content available?
+1C. SAP API Business Hub
+
+Q: Which tool do you use to run the SAP Cloud Integration Automation Service for SAP S/4HANA Cloud, public edition?
+1C. SAP Maintenance Planner
+2. SAP Solution Manager
 
