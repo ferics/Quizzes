@@ -264,18 +264,10 @@ public class Quizzes extends JFrame {
     private List<Question> selectRandomQuestions(List<Question> questions) {
         List<Question> randomisedQuestions = new ArrayList<>(questions);
 
-        int numberOfQuestions = 120;
-
         // if the amount of loaded questions is less than the requested amount => just shuffle then return all of them
-        if (questions.size() <= numberOfQuestions) {
+        if (questions.size() <= 500) {
             Collections.shuffle(randomisedQuestions);
             return randomisedQuestions;
-        }
-
-        // shuffle the questions
-        for (int i = 0; i < questions.size(); i++) {
-            int index = new Random().nextInt(questions.size());
-            randomisedQuestions.add(questions.get(index));
         }
 
         return randomisedQuestions;
