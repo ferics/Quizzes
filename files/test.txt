@@ -47,3 +47,27 @@ Q: In the Organizational Structure app in SAP Central Business Configuration, wh
 2C. Plant
 3. Purchasing Organization
 4. Division
+
+Q: How do you identify errors in a test plan? (2 correct)
+1C. Review failed process steps.
+2C. Review the detailed action log.
+3. Re-run the test plan
+4. Review canceled actions
+
+Q: Which of the following security measures is the customer responsible for?
+1C. Application-level user management
+2. Change logging through audit trails
+3. Deactivation of SAP administrative users
+4. API management
+
+Q: According to the General Data Protection Regulation (GDPR) laws, when are SAP customers considered data controllers?
+1C. When they use SAP cloud applications
+2. When they extract legacy data in preparation for migration
+3. When they engage other businesses in the European Union
+4. When they request implementation of a cloud solution
+
+Q: What are main process steps for the Project Billing - Project Based Services? (3 correct)
+1C. Monitor billing elements
+2C. Prepare billing
+3C. Submit billing document request
+4. Create retroactive billing documents
