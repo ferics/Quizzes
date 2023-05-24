@@ -179,7 +179,7 @@ public class Quizzes extends JFrame {
     }
 
     private void updateQuestionUI(Question question) {
-        questionLabel.setText("<html><body style='width: 650px; padding: 10px '>" + answeredCounter++ +"/"+this.selectedQuestions.size()+":"+ question.getQuestion() + "</body></html>");
+        questionLabel.setText("<html><body style='width: 650px; padding: 10px '>" + answeredCounter +"/"+this.selectedQuestions.size()+":"+ question.getQuestion() + "</body></html>");
         questionLabel.setVerticalAlignment(JLabel.TOP);
 
         if (answerCheckBoxes != null) {
@@ -207,6 +207,7 @@ public class Quizzes extends JFrame {
 
         JPanel buttonPanel = new JPanel(new FlowLayout()); // Use FlowLayout for the button panel
 //        buttonPanel.add(previousButton);
+        if (answeredCounter++ == this.selectedQuestions.size()) { this.nextButton.setText("Submit Quiz"); }
         buttonPanel.add(nextButton);
 
         getContentPane().removeAll();

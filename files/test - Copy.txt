@@ -1,0 +1,263 @@
+Q: What must you create when you build a communication scenario in SAP SAHANA Cloud, public edition? (3 correct)
+1C. Communication user
+2C. Communication system
+3. Communication API
+4C. Communication arrangement
+5. communication scenario
+
+Q: What tasks can you perform from the Display Technical Users app? (2 correct)
+1C. Change the username and password of a print user.
+2C. Lock the initial user account that is delivered with the new system.
+3. Upload a certificate for a communication user
+4. Assign and unassign users to user groups.
+
+Q: Which activities does the consultant do before the first Fit-to-Standard workshop? (2 correct)
+1C. Review the integration requirements collected from the Digital Discovery Assessment.
+2C. Evaluate the L2 Business-Driven Configuration Questionnaire responses.
+3. Deactivate scope items that are NOT part of the Statement of Work/Digital Discovery Assessment.
+4. Upload customer master data in the Starter system using migration templates.
+
+Q: What defines the organizational entities that are required in SAP Central Business Configuration? (2 correct)
+1C. System consistency checks
+2C. The selected scope
+3. Data migrated from the legacy system
+4. The selected deployment target
+5. Added partner content
+
+Q: How does an implementation consultant support customer experts during Fit-to-Standard workshops? (2 correct)
+1C. Demonstrate SAP Best Practices in the Starter system.
+2C. Highlight areas that require configuration or extensibility decisions.
+3. Conduct end-user training on active scope items.
+4. Determine set up instructions for customer-driven integrations.
+
+Q: In which scenario would you use Read Access Logging (RAL) to determine the information?
+1C. If a business user accessed a business partner's personal data
+2. If a business user has restrictions when accessing data in an application
+3. If a business user accessed data in a custom field of an application
+4. If the authorizations for a business user are missing or insufficient
+
+Q: What are characteristics of the SAP S/4HANA Migration Cockpit? (2 correct)
+1C. Guidance and simulation of the migration process
+2C. Mapping source values to SAP S/4HANA target values
+3. Combining the staging and file approaches into one migration project
+4. Extensibility using the Legacy System Migration Workbench (LSMW)
+
+Q: In the Organizational Structure app in SAP Central Business Configuration, which of the following entities can be added under the Company root node? (2 correct)
+1C. Sales Organization
+2C. Plant
+3. Purchasing Organization
+4. Division
+
+Q: How do you identify errors in a test plan? (2 correct)
+1C. Review failed process steps.
+2C. Review the detailed action log.
+3. Re-run the test plan
+4. Review canceled actions
+
+Q: Which of the following security measures is the customer responsible for?
+1C. Application-level user management
+2. Change logging through audit trails
+3. Deactivation of SAP administrative users
+4. API management
+
+Q: According to the General Data Protection Regulation (GDPR) laws, when are SAP customers considered data controllers?
+1C. When they use SAP cloud applications
+2. When they extract legacy data in preparation for migration
+3. When they engage other businesses in the European Union
+4. When they request implementation of a cloud solution
+
+Q: What are main process steps for the Project Billing - Project Based Services? (3 correct)
+1C. Monitor billing elements
+2C. Prepare billing
+3C. Submit billing document request
+4. Create retroactive billing documents
+
+Q: Which of the following changes would prevent SAP from running automated business process tests on your behalf? (2 correct)
+1C. Configuration changes that impact the process flow
+2C. Changes to the data input requirements (custom data fields)
+3. SAP-made changes to the standard test process
+4. Changes to the SAP S/4HANA Cloud release (upgrade)
+
+Q: When a customer has a cloud-centric landscape, which technologies should you use to integrate SAP S/4HANA Cloud, public edition with another SAP Cloud solution? (2 correct)
+1C. Predelivered APIs
+2C. SAP Integration Suite
+3. SAP Cloud Connector
+4. SAP Process Orchestration
+
+Q: What Billing elements are NOT listed in the 'Manage Project Billing' app? (2 correct)
+1C. Blocked
+2C. Rejected
+3. In Execution
+4. Cancelled
+
+Q: In SAP Central Business Configuration, which changes are possible for the Starter System after content activation? (3 correct)
+1C. Add new organizational entities
+2C. Edit existing product-specific configurations
+3C. Create additional product-specific configurations
+4. Delete existing organizational entities
+5. Change the group ledger scenario
+
+Q: What activities are applied to the entire system and cannot be changed after confirmation in SAP Central Business Configuration? (2 correct)
+1C. Group currency
+2C. Fiscal year variant
+3. Scoping
+4. Configuration activities
+
+Q: When do you specify the data retention period in the SAP S/4HANA Migration Cockpit?
+1C. When the project status is "Finished"
+2. When the project status is "Completed"
+3. When the project status is "Closed"
+
+Q: In SAP Central Business Configuration, which activities can you perform in the Product-Specific Configuration Phase? (3 correct)
+1C. Add new sales organizations.
+2C. Add blocking reasons for billing.
+3C. Change approval thresholds.
+4. Modify building blocks.
+5. Create new scope items.
+
+Q: What test process types are available in the Manage Your Test Processes app? (3 correct)
+1C. Standard
+2C. Custom
+3C. Post-upgrade
+4. Regression
+5. Integration
+
+Q: What are some responsibilities of a Customer Center of Expertise (CCOE)? (3 correct)
+1C. Conduct risk-based assessments to determine the value of activating new processes.
+2C. Reduce the total cost of ownership for IT.
+3C. Determine KPIs that will support a continuous improvement mindset.
+4. Ensure the resources necessary for the project's success are available
+5. Serve as a central contact for SAP and manage interactions with the SAP Service Center
+
+Q: Which of the following can be transported using the Software Collection apps in SAP S/4HANA Cloud, public edition? (2 correct)
+1C. UI variants and changes
+2C. Custom business objects
+3. Custom business roles
+4. Migration projects
+
+Q: Where can you find packaged integration content if there is no SAP Best Practices content available?
+1C. SAP API Business Hub
+2. SAP Fiori Apps Reference Library
+3. SAP Business Technology Platform Cockpit
+4. SAP Extensibility Explorer
+
+Q: Which tool do you use to run the SAP Cloud Integration Automation Service for SAP S/4HANA Cloud, public edition?
+1C. SAP Maintenance Planner
+2. SAP Solution Manager
+3. SAP Activate Roadmap
+4. SAP Best Practices Explorer
+
+Q: How can you migrate data to SAP S/4HANA Cloud, public edition? (2 correct)
+1C. Staging database
+2C. File templates
+3. Core Data Services
+4. RFC calls
+
+Q: You need to integrate the headquarters of a company running on SAP S/4HANA with a subsidiary running on SAP S/4HANA Cloud, public edition. (2 correct)
+1C. SAP Cloud Connector
+2. SAP Open Connectors
+3C. SAP Cloud Integration
+4. SAP Process Orchestration
+
+Q: What field must be maintained before you can execute the Purchase Contract (BMD) process? (2 correct)
+1C. Supplier
+2C. Purchasing organization
+3. Purchasing info record
+4. arehouse number
+
+Q: Which of the following characteristics apply to Service Procurement in SAP S/4HANA Cloud, public edition? (2 correct)
+1. Creates separate invoices for materials and lean-services line items for mixed orders including materials
+2C. Allows suppliers to create ship notices and service sheets for mixed orders
+3C. Provides guided buying capability for planned and unplanned lean services and mixed orders including materials
+4. Provides a seamless flow from purchase orders in SAP S/4HANA Cloud to purchase order confirmation in SAP Concur
+
+Q: Which SAP Fiori app is used in the Sourcing with SAP Ariba Sourcing (4BL) process?
+1. Compare Supplier Quotations
+2B. Manage RFQs
+3. Create Purchase Order
+4. Create Supplier Invoice
+
+Q: In the template-based migration approach, what is the maximum file size? (2 correct)
+1. 160 MB per ZIP file
+2C. 160 MB per XML file
+3. 100 MB per XML file
+4C. 100 MB per ZIP file
+
+Q: In SAP Central Business Configuration, what does the "Confirm Scope and Organizational Structure is Completed" milestone trigger in the Implementation Project?
+1. Installation of the Starter System
+2C. Installation of the Production System
+3. Initial Transport from Quality to Production
+4. Installation of the Quality System
+
+Q: Which transition scenario fits a customer who is interested in moving to SAP S/4HANA Cloud, but is not ready for full process redesign?
+1. System Conversion
+2. New Implementation
+3. Landscape Transformation
+4C. Selective Data Transition
+
+Q: You are performing data migration using the SAP S/4HANA Migration Cockpit. The same record exists twice in your upload file. At which stage does the upload of the migration template fail due to the duplicated record?
+1. Execute Import
+2. Validate Data
+3C. Simulate Import
+4. Convert Values
+
+Q: What can a business user do with personal settings? (2 correct)
+1C. Change the format of dates and numbers.
+2. Merge two or more columns into a single column.
+3C. Change the order of columns in a table.
+4. Modify the UI layout of the app.
+
+Q: Which activities are completed in SAP Central Business Configuration? (2 correct)
+1C. Add customer-specific data within SAP Best Practices content.
+2. Create customer-specific master data.
+3C. Add extensions to standard processes.
+4. Activate countries not covered by SAP Best Practices.
+
+Q: Where do you specify the retention time of temporary data in the SAP S/4HANA Migration Cockpit?
+1C. In the migration object template
+2. In the migration project
+3. In the staging tables
+4. In the migration object
+
+Q: What can you do with the Manage Your Test Processes SAP Fiori app? (2 correct)
+1C. Create a test user.
+2C. Define test plan variants
+3. Record new actions.
+4. Assign a test role
+
+Q: Which cloud computing service enables you to build and deploy applications?
+1. IPaaS
+2. IaaS
+3. Saas
+4C. PaaS
+
+Q: What is the purpose of the Test Automation Tool?
+1. Populates business data for each testscreen.
+2C. Performs actions in a simulated user interface on behalf of the assigned test user.
+3. Provides information on your actual tenant configuration.
+4. Provides information on the business app(s) to be used for testing
+
+Q: For which of the following activities the starter system used?
+1. Document delta requirements in the backlog.
+2C. Transport the solution configuration to the quality system.
+3. Run integration testing.
+4. Set up the Test Automation Tool.
+
+Q: What are some characteristics of SAP HANA Enterprise Cloud? (3 correct)
+1C. Customers can bring their own licensed SAP applications.
+2C. It is an Infrastructure as a Service (IaaS) plus managed services
+3C. Services include provisioning, patching, and upgrading.
+4. SAP runs your application in a shared environment
+5. It is a Platform as a Service (PaaS) plus managed services.
+
+Q: What are some services SAP delivers as part of the RISE with SAP S/4HANA Cloud solution? (2 correct)
+1. Infrastructure management
+2C. Release upgrade planning
+3C. Technical upgrade installation
+4. Business process configuration
+
+Q: When setting up integrations with external systems, how many communication arrangements should you create?
+1. One for each external system you want to interface with
+2. One for each communication user you intend to use
+3. One for each communication protocol you are using
+4C. One for each communication scenario you are implementing
