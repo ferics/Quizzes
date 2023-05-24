@@ -1,7 +1,5 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -18,13 +16,12 @@ public class Quizzes extends JFrame {
     private int currentIndex;
 
     private int score = 0;
-    private final int numberOfQuestions = 10;
     private int answeredCounter = 1;
 
     private final JLabel questionLabel;
     private JCheckBox[] answerCheckBoxes;
     private final JButton startButton;
-    private final JButton submitButton;
+    private final JButton nextButton;
     private final JButton previousButton;
 
     public Quizzes() {
@@ -33,6 +30,9 @@ public class Quizzes extends JFrame {
         setResizable(false);
         setSize(850, 300);
         setLocationRelativeTo(null);
+
+        ImageIcon icon = new ImageIcon("..\\files\\questions-logo.png");
+        setIconImage(icon.getImage());
 
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
@@ -43,16 +43,16 @@ public class Quizzes extends JFrame {
 
         JPanel buttonPanel = new JPanel();
         startButton = new JButton("Start");
-        submitButton = new JButton("Submit");
+        nextButton = new JButton("Next");
         previousButton = new JButton("Previous");
-        submitButton.setEnabled(false);
+        nextButton.setEnabled(false);
         buttonPanel.add(startButton);
-        buttonPanel.add(submitButton);
+        buttonPanel.add(nextButton);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
         startButton.addActionListener(e -> startQuiz());
 
-        submitButton.addActionListener(e -> submitQuiz());
+        nextButton.addActionListener(e -> submitQuiz());
 
         previousButton.addActionListener(e -> goBackToPreviousQuestion());
 
@@ -62,7 +62,15 @@ public class Quizzes extends JFrame {
     }
 
     private void startQuiz() {
-        List<Question> questions = readQuestionsFromFile();
+        String[] options = {"Partial", "Full"};
+        int choice = JOptionPane.showOptionDialog(this, "Choose the quiz mode:", "Quiz Mode", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+        String questionsFileFull = "questions";
+        String questionsFilePartial = "test";
+        String questionsFile = (choice == 1) ? questionsFileFull : questionsFilePartial;
+
+        List<Question> questions = readQuestionsFromFile(questionsFile);
+
+//        List<Question> questions = readQuestionsFromFile();
         incorrectIndices = new ArrayList<>();
         if (questions.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No questions found in the file.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -80,7 +88,7 @@ public class Quizzes extends JFrame {
         updateQuestionUI(selectedQuestions.get(currentIndex));
         enableAnswerOptions(true);
         startButton.setEnabled(false);
-        submitButton.setEnabled(true);
+        nextButton.setEnabled(true);
         previousButton.setEnabled(false);
     }
 
@@ -139,10 +147,10 @@ public class Quizzes extends JFrame {
 
         if (percentageScore >= 59) {
             resultMessage.append("Congratulations, you passed!");
-            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon(".\\files\\green-tick.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
+            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon("..\\files\\green-tick.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
         } else {
             resultMessage.append("Sorry, you did not pass.");
-            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon(".\\files\\red-cross.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
+            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon("..\\files\\red-cross.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
         }
 
         if (!incorrectIndices.isEmpty()) {
@@ -167,13 +175,12 @@ public class Quizzes extends JFrame {
 
         enableAnswerOptions(false);
         startButton.setEnabled(true);
-        submitButton.setEnabled(false);
+        nextButton.setEnabled(false);
         previousButton.setEnabled(false);
     }
 
     private void updateQuestionUI(Question question) {
-
-        questionLabel.setText("<html><body style='width: 650px; padding: 10px '>" + answeredCounter++ +"/"+numberOfQuestions+":"+ question.getQuestion() + "</body></html>");
+        questionLabel.setText("<html><body style='width: 650px; padding: 10px '>" + answeredCounter++ +"/"+this.selectedQuestions.size()+":"+ question.getQuestion() + "</body></html>");
         questionLabel.setVerticalAlignment(JLabel.TOP);
 
         if (answerCheckBoxes != null) {
@@ -200,8 +207,8 @@ public class Quizzes extends JFrame {
         }
 
         JPanel buttonPanel = new JPanel(new FlowLayout()); // Use FlowLayout for the button panel
-        buttonPanel.add(previousButton);
-        buttonPanel.add(submitButton);
+//        buttonPanel.add(previousButton);
+        buttonPanel.add(nextButton);
 
         getContentPane().removeAll();
         getContentPane().add(questionLabel, BorderLayout.NORTH);
@@ -219,10 +226,10 @@ public class Quizzes extends JFrame {
         }
     }
 
-    private List<Question> readQuestionsFromFile() {
+    private List<Question> readQuestionsFromFile(String questionsFile) {
         List<Question> questions = new ArrayList<>();
 
-        String fileName = ".\\files\\questions.txt";
+        String fileName = "..\\files\\"+questionsFile+".txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             Question question = null;
@@ -255,28 +262,27 @@ public class Quizzes extends JFrame {
     }
 
     private List<Question> selectRandomQuestions(List<Question> questions) {
-        List<Question> selectedQuestions = new ArrayList<>();
-        Random random = new Random();
+        List<Question> randomisedQuestions = new ArrayList<>(questions);
 
+        int numberOfQuestions = 120;
+
+        // if the amount of loaded questions is less than the requested amount => just shuffle then return all of them
         if (questions.size() <= numberOfQuestions) {
-            return questions;
+            Collections.shuffle(randomisedQuestions);
+            return randomisedQuestions;
         }
 
-        for (int i = 0; i < 10; i++) {
-            int index = random.nextInt(questions.size());
-            selectedQuestions.add(questions.get(index));
-            questions.remove(index);
+        // shuffle the questions
+        for (int i = 0; i < questions.size(); i++) {
+            int index = new Random().nextInt(questions.size());
+            randomisedQuestions.add(questions.get(index));
         }
 
-        return selectedQuestions;
+        return randomisedQuestions;
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                new Quizzes();
-            }
-        });
+        SwingUtilities.invokeLater(Quizzes::new);
     }
 }
 
