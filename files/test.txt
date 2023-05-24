@@ -71,3 +71,32 @@ Q: What are main process steps for the Project Billing - Project Based Services?
 2C. Prepare billing
 3C. Submit billing document request
 4. Create retroactive billing documents
+
+Q: Which of the following changes would prevent SAP from running automated business process tests on your behalf? (2 correct)
+1C. Configuration changes that impact the process flow
+2C. Changes to the data input requirements (custom data fields)
+3. SAP-made changes to the standard test process
+4. Changes to the SAP S/4HANA Cloud release (upgrade)
+
+Q: When a customer has a cloud-centric landscape, which technologies should you use to integrate SAP S/4HANA Cloud, public edition with another SAP Cloud solution? (2 correct)
+1C. Predelivered APIs
+2C. SAP Integration Suite
+3. SAP Cloud Connector
+4. SAP Process Orchestration
+
+Q: What Billing elements are NOT listed in the 'Manage Project Billing' app? (2 correct)
+1C. Blocked
+2C. Rejected
+3. In Execution
+4. Cancelled
+
+Q: What activities are applied to the entire system and cannot be changed after confirmation in SAP Central Business Configuration? (2 correct)
+1C. Group currency
+2C. Fiscal year variant
+3. Scoping
+4. Configuration activities
+
+Q: When do you specify the data retention period in the SAP S/4HANA Migration Cockpit?
+1C. When the project status is "Finished"
+2. When the project status is "Completed"
+3. When the project status is "Closed"
