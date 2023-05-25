@@ -1,49 +1,49 @@
-Q:  Which of the following Business Add-Ins (BAdls) are available for the Fiori app Create Internal Projects? (3 correct)
+Q: Which of the following Business Add-Ins (BAdls) are available for the Fiori app Create Internal Projects? (3 correct)
 1C. Check Authorization to Change Project Stage
 2. Project Element Determination
 3C. Send email
 4. Project Validation
 5C. Generate Project IDs
 
-Q:  How are analytics capabilities built into SAP S/4HANA Cloud?
+Q: How are analytics capabilities built into SAP S/4HANA Cloud?
 1C. They are embedded in the same technical stack as the application
 2. They are installed on a dedicated SAP Fiori frontend server
 3. They are installed as an add-on to the application
 4. They are extended by the user to a dedicated SAP Fiori frontend server
 
-Q:  Which resources do you use when planning a Fit-to-Standard workshop? (2 correct)
+Q: Which resources do you use when planning a Fit-to-Standard workshop? (2 correct)
 1. Legacy system configurations
 2. Business process test automates
 3C. Test scripts
 4C. Business process flows
 
-Q:  How can business users create new analytics content? (3 correct)
+Q: How can business users create new analytics content? (3 correct)
 1C. Combine current and historical data
 2C. Create additional key figures in existing data sources
 3. Change underlying database tables of standard data sources
 4. Change existing data sources by adding filters
 5C. Create new data sources via joins of standard data sources
 
-Q:  Which of the following functions are available when you create billing documents from the billing due list items? (3 correct)
+Q: Which of the following functions are available when you create billing documents from the billing due list items? (3 correct)
 1C. Create an individual billing document for each processed billing due list item
 2. Run parallel processing for billing document creation
 3. Log billing document information messages
 4C. Create a collective billing document for multiple billing due list items
 5C. View billing document details
 
-Q:  Which activities can you execute in the Maintain Business Roles SAP Fiori app? (2 correct)
+Q: Which activities can you execute in the Maintain Business Roles SAP Fiori app? (2 correct)
 1C. Assign business catalogs to a business role
 2. Maintain catalog roles
 3. Assign PFCG profiles to a business role
 4C. Maintain restrictions
 
-Q:  What are your options if an out-of-the-box integration between SAP S/4HANA Cloud and another SAP solution is NOT available? (2 correct)
+Q: What are your options if an out-of-the-box integration between SAP S/4HANA Cloud and another SAP solution is NOT available? (2 correct)
 1C. Integration tools
 2C. Whitelisted APIs
 3. Unrestricted firewall
 4. Infrastructure as a Service
 
-Q:  Which of the following contract types are available when defining how to bill the customer? (3 correct)
+Q: Which of the following contract types are available when defining how to bill the customer? (3 correct)
 1C. Periodic services
 2C. Time and expenses
 3. Periodic billing
@@ -64,9 +64,9 @@ Q: Which apps enable you to access the queries related to Margin Analysis & Util
 
 Q: What is the purpose of the Starter system in the SAP S/4HANA Cloud implementation project?
 1. To configure the customer's personalized solution for demonstration and testing during the Realize phase
-2C. TO demonstrate SAP Best Practices processes in a preconfigured system and identify customer personalization requirements
+2C. To demonstrate SAP Best Practices processes in a preconfigured system and identify customer personalization requirements
 3. To conduct a blueprint workshop to identify all customer requirements for a completely customized solution
-4. TO demonstrate the customer's personalized solution, including process flows, the organizational structure, and authorizations
+4. To demonstrate the customer's personalized solution, including process flows, the organizational structure, and authorizations
 
 Q: Which adjustments can be made using Custom Analytical Queries? (3 correct)
 1C. Trace development objects in a query
@@ -771,6 +771,8 @@ Q: When do you specify the data retention period in the SAP S/4HANA Migration Co
 1C. When the project status is "Finished"
 2. When the project status is "Completed"
 3. When the project status is "Closed"
+4. When the project status is "Archived"
+
 
 Q: In SAP Central Business Configuration, which activities can you perform in the Product-Specific Configuration Phase? (3 correct)
 1C. Add new sales organizations.
@@ -827,7 +829,7 @@ Q: What field must be maintained before you can execute the Purchase Contract (B
 1C. Supplier
 2C. Purchasing organization
 3. Purchasing info record
-4. arehouse number
+4. Warehouse number
 
 Q: Which of the following characteristics apply to Service Procurement in SAP S/4HANA Cloud, public edition? (2 correct)
 1. Creates separate invoices for materials and lean-services line items for mixed orders including materials
@@ -837,7 +839,7 @@ Q: Which of the following characteristics apply to Service Procurement in SAP S/
 
 Q: Which SAP Fiori app is used in the Sourcing with SAP Ariba Sourcing (4BL) process?
 1. Compare Supplier Quotations
-2B. Manage RFQs
+2C. Manage RFQs
 3. Create Purchase Order
 4. Create Supplier Invoice
 
@@ -885,9 +887,9 @@ Q: Where do you specify the retention time of temporary data in the SAP S/4HANA 
 
 Q: What can you do with the Manage Your Test Processes SAP Fiori app? (2 correct)
 1C. Create a test user.
-2C. Define test plan variants
+2C. Define test plan variants.
 3. Record new actions.
-4. Assign a test role
+4. Assign a test role.
 
 Q: Which cloud computing service enables you to build and deploy applications?
 1. IPaaS
