@@ -1,1 +1,0 @@
-start /min cmd /c "javac Quizzes.java & java Quizzes & del Question.class Quizzes.class & exit"
