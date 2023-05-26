@@ -15,7 +15,6 @@ public class Quizzes extends JFrame {
     private int currentIndex;
 
     private int score = 0;
-    private int answeredCounter = 1;
 
     private final JLabel questionLabel;
     private JCheckBox[] answerCheckBoxes;
@@ -111,7 +110,15 @@ public class Quizzes extends JFrame {
         }
 
         if (allCorrect) {
-            score++;
+            if (!selectedQuestions.get(currentIndex).getAnswered()){
+                score++;
+                selectedQuestions.get(currentIndex).setAnsweredCorrect();
+            }
+        } else {
+            if (selectedQuestions.get(currentIndex).getAnswered()){
+                score--;
+                selectedQuestions.get(currentIndex).setAnsweredIncorrect();
+            }
         }
 
         if (selectedCount == 0) {
@@ -179,7 +186,7 @@ public class Quizzes extends JFrame {
     }
 
     private void updateQuestionUI(Question question) {
-        questionLabel.setText("<html><body style='width: 650px; padding: 10px '>" + answeredCounter +"/"+this.selectedQuestions.size()+":"+ question.getQuestion() + "</body></html>");
+        questionLabel.setText("<html><body style='width: 650px; padding: 10px '>" + (currentIndex+1) +"/"+this.selectedQuestions.size()+":"+ question.getQuestion() + "</body></html>");
         questionLabel.setVerticalAlignment(JLabel.TOP);
 
         if (answerCheckBoxes != null) {
@@ -206,8 +213,8 @@ public class Quizzes extends JFrame {
         }
 
         JPanel buttonPanel = new JPanel(new FlowLayout()); // Use FlowLayout for the button panel
-//        buttonPanel.add(previousButton);
-        if (answeredCounter++ == this.selectedQuestions.size()) { this.nextButton.setText("Submit Quiz"); }
+        buttonPanel.add(previousButton);
+        if (currentIndex+1 == this.selectedQuestions.size()) { this.nextButton.setText("Submit Quiz"); }
         buttonPanel.add(nextButton);
 
         getContentPane().removeAll();
@@ -281,10 +288,24 @@ public class Quizzes extends JFrame {
 class Question {
     private final String question;
     private List<String> options;
+    private boolean answered;
 
     public Question(String question) {
         this.question = question;
-        options = new ArrayList<>();
+        this.options = new ArrayList<>();
+        this.answered = false;
+    }
+
+    public void setAnsweredCorrect(){
+        this.answered = true;
+    }
+
+    public void setAnsweredIncorrect(){
+        this.answered = false;
+    }
+
+    public boolean getAnswered(){
+        return this.answered;
     }
 
     public void setOptions(List<String> randomisedOptions){
