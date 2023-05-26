@@ -73,7 +73,7 @@ public class Quizzes extends JFrame {
         String[] options = {"Subset", "All"};
         int choice = JOptionPane.showOptionDialog(this, "Choose the questions mode:", "Question Mode", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
         String questionsFileFull = "all-questions";
-        String questionsFilePartial = "subset-question";
+        String questionsFilePartial = "subset-questions";
         String questionsFile = (choice == 1) ? questionsFileFull : questionsFilePartial;
 
         List<Question> questions = readQuestionsFromFile(selectedTopic, questionsFile);
@@ -193,6 +193,9 @@ public class Quizzes extends JFrame {
         startButton.setEnabled(true);
         nextButton.setEnabled(false);
         previousButton.setEnabled(false);
+
+        dispose();
+        Quizzes.main(null);
     }
 
     private void updateQuestionUI(Question question) {
