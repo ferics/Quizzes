@@ -186,7 +186,16 @@ public class Quizzes extends JFrame {
                     } else { resultMessage.append(options.get(i).replace(". ", "")).append("\n"); }
                 }
             }
-            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Incorrect Answers", JOptionPane.INFORMATION_MESSAGE);
+            JTextArea messageArea = new JTextArea(resultMessage.toString());
+            messageArea.setEditable(false);
+
+            if (incorrectIndices.size() >= 5) {
+                JScrollPane scrollPane = new JScrollPane(messageArea);
+                scrollPane.setPreferredSize(new Dimension(850, 500));
+                JOptionPane.showMessageDialog(this, scrollPane, "Incorrect Answers", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(this, resultMessage.toString(), "Incorrect Answers", JOptionPane.INFORMATION_MESSAGE);
+            }
         }
 
         enableAnswerOptions(false);
