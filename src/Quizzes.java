@@ -29,7 +29,7 @@ public class Quizzes extends JFrame {
         setSize(850, 300);
         setLocationRelativeTo(null);
 
-        ImageIcon icon = new ImageIcon("..\\files\\questions-logo.png");
+        ImageIcon icon = new ImageIcon("..\\files\\Images\\questions-logo.png");
         setIconImage(icon.getImage());
 
         JPanel mainPanel = new JPanel();
@@ -43,15 +43,12 @@ public class Quizzes extends JFrame {
         startButton = new JButton("Start");
         nextButton = new JButton("Next");
         previousButton = new JButton("Previous");
-        nextButton.setEnabled(false);
+
         buttonPanel.add(startButton);
-        buttonPanel.add(nextButton);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
 
         startButton.addActionListener(e -> startQuiz());
-
         nextButton.addActionListener(e -> submitQuiz());
-
         previousButton.addActionListener(e -> goBackToPreviousQuestion());
 
         add(mainPanel);
@@ -68,7 +65,6 @@ public class Quizzes extends JFrame {
 
         List<Question> questions = readQuestionsFromFile(questionsFile);
 
-//        List<Question> questions = readQuestionsFromFile();
         incorrectIndices = new ArrayList<>();
         if (questions.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No questions found in the file.", "Error", JOptionPane.ERROR_MESSAGE);
@@ -151,12 +147,13 @@ public class Quizzes extends JFrame {
                 "Incorrect answers: " + (selectedQuestions.size() - score) + "\n" +
                 "Percentage: " + String.format("%.2f", percentageScore) + "%\n\n");
 
-        if (percentageScore >= 59) {
+        //cutoff score
+        if (percentageScore >= 50) {
             resultMessage.append("Congratulations, you passed!");
-            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon("..\\files\\green-tick.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
+            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon("..\\files\\Images\\green-tick.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
         } else {
             resultMessage.append("Sorry, you did not pass.");
-            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon("..\\files\\red-cross.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
+            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon("..\\files\\Images\\red-cross.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
         }
 
         if (!incorrectIndices.isEmpty()) {
@@ -214,7 +211,7 @@ public class Quizzes extends JFrame {
 
         JPanel buttonPanel = new JPanel(new FlowLayout()); // Use FlowLayout for the button panel
         buttonPanel.add(previousButton);
-        if (currentIndex+1 == this.selectedQuestions.size()) { this.nextButton.setText("Submit Quiz"); }
+        if (currentIndex+1 == this.selectedQuestions.size()) { this.nextButton.setText("Submit Quiz"); } else { this.nextButton.setText("Next"); }
         buttonPanel.add(nextButton);
 
         getContentPane().removeAll();
@@ -236,7 +233,7 @@ public class Quizzes extends JFrame {
     private List<Question> readQuestionsFromFile(String questionsFile) {
         List<Question> questions = new ArrayList<>();
 
-        String fileName = "..\\files\\"+questionsFile+".txt";
+        String fileName = "..\\files\\Topics\\"+questionsFile+".txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             Question question = null;
@@ -296,17 +293,11 @@ class Question {
         this.answered = false;
     }
 
-    public void setAnsweredCorrect(){
-        this.answered = true;
-    }
+    public void setAnsweredCorrect(){ this.answered = true; }
 
-    public void setAnsweredIncorrect(){
-        this.answered = false;
-    }
+    public void setAnsweredIncorrect(){ this.answered = false; }
 
-    public boolean getAnswered(){
-        return this.answered;
-    }
+    public boolean getAnswered(){ return this.answered; }
 
     public void setOptions(List<String> randomisedOptions){
         options = randomisedOptions;
@@ -324,8 +315,5 @@ class Question {
         options.add(option);
     }
 
-    public boolean isCorrectOption(int index) {
-        String option = options.get(index);
-        return option.matches("C.*");
-    }
+    public boolean isCorrectOption(int index) { return options.get(index).matches("C.*"); }
 }

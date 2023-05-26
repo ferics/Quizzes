@@ -1,0 +1,12 @@
+Q: In SAP Central Business Configuration, which activities can you perform in the Product-Specific Configuration Phase? (3 correct)
+1C. Add new sales organizations.
+2C. Add blocking reasons for billing.
+3C. Change approval thresholds.
+4. Modify building blocks.
+5. Create new scope items.
+
+Q: Which of the following can be transported using the Software Collection apps in SAP S/4HANA Cloud, public edition? (2 correct)
+1C. UI variants and changes
+2C. Custom business objects
+3. Custom business roles
+4. Migration projects
