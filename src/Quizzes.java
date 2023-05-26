@@ -1,6 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class Quizzes extends JFrame {
     private final JButton previousButton;
 
     public Quizzes() {
-        setTitle("Quiz Program");
+        setTitle("Practice Exam");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setResizable(false);
         setSize(850, 300);
@@ -35,7 +36,7 @@ public class Quizzes extends JFrame {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
 
-        questionLabel = new JLabel("Press 'Start' to begin the quiz.");
+        questionLabel = new JLabel("Press 'Start' to begin the practice exam questions.");
         questionLabel.setHorizontalAlignment(SwingConstants.CENTER);
         mainPanel.add(questionLabel, BorderLayout.CENTER);
 
@@ -57,13 +58,25 @@ public class Quizzes extends JFrame {
     }
 
     private void startQuiz() {
-        String[] options = {"Partial", "Full"};
-        int choice = JOptionPane.showOptionDialog(this, "Choose the quiz mode:", "Quiz Mode", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
-        String questionsFileFull = "questions";
-        String questionsFilePartial = "test";
+        File[] topicFolders = new File("..\\files\\Topics").listFiles(File::isDirectory);
+        assert topicFolders != null;
+        String[] topics = new String[topicFolders.length];
+        for (int i = 0; i < topicFolders.length; i++) {
+            topics[i] = topicFolders[i].getName();
+        }
+
+        String selectedTopic = (String) JOptionPane.showInputDialog(this, "Choose a topic:", "Topic Selection", JOptionPane.PLAIN_MESSAGE, null, topics, topics[0]);
+        if (selectedTopic == null) {
+            return; // User canceled the topic selection
+        }
+
+        String[] options = {"Subset", "All"};
+        int choice = JOptionPane.showOptionDialog(this, "Choose the questions mode:", "Question Mode", JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+        String questionsFileFull = "all-questions";
+        String questionsFilePartial = "subset-question";
         String questionsFile = (choice == 1) ? questionsFileFull : questionsFilePartial;
 
-        List<Question> questions = readQuestionsFromFile(questionsFile);
+        List<Question> questions = readQuestionsFromFile(selectedTopic, questionsFile);
 
         incorrectIndices = new ArrayList<>();
         if (questions.isEmpty()) {
@@ -73,7 +86,7 @@ public class Quizzes extends JFrame {
 
         selectedQuestions = selectRandomQuestions(questions);
         if (selectedQuestions.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Insufficient questions to start the quiz.", "Error", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Insufficient questions to start the practice exam.", "Error", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
@@ -142,7 +155,7 @@ public class Quizzes extends JFrame {
     private void finishQuiz() {
         double percentageScore = (double) score / selectedQuestions.size() * 100;
 
-        StringBuilder resultMessage = new StringBuilder("Quiz finished!\n\n" +
+        StringBuilder resultMessage = new StringBuilder("Practice Exam finished!\n\n" +
                 "Correct answers: " + score + "\n" +
                 "Incorrect answers: " + (selectedQuestions.size() - score) + "\n" +
                 "Percentage: " + String.format("%.2f", percentageScore) + "%\n\n");
@@ -150,10 +163,10 @@ public class Quizzes extends JFrame {
         //cutoff score
         if (percentageScore >= 50) {
             resultMessage.append("Congratulations, you passed!");
-            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon("..\\files\\Images\\green-tick.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
+            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Exam Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon("..\\files\\Images\\green-tick.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
         } else {
             resultMessage.append("Sorry, you did not pass.");
-            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Quiz Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon("..\\files\\Images\\red-cross.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
+            JOptionPane.showMessageDialog(this, resultMessage.toString(), "Exam Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon("..\\files\\Images\\red-cross.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
         }
 
         if (!incorrectIndices.isEmpty()) {
@@ -211,7 +224,7 @@ public class Quizzes extends JFrame {
 
         JPanel buttonPanel = new JPanel(new FlowLayout()); // Use FlowLayout for the button panel
         buttonPanel.add(previousButton);
-        if (currentIndex+1 == this.selectedQuestions.size()) { this.nextButton.setText("Submit Quiz"); } else { this.nextButton.setText("Next"); }
+        if (currentIndex+1 == this.selectedQuestions.size()) { this.nextButton.setText("Submit All Answers"); } else { this.nextButton.setText("Next"); }
         buttonPanel.add(nextButton);
 
         getContentPane().removeAll();
@@ -230,10 +243,10 @@ public class Quizzes extends JFrame {
         }
     }
 
-    private List<Question> readQuestionsFromFile(String questionsFile) {
+    private List<Question> readQuestionsFromFile(String selectedTopic, String questionsFile) {
         List<Question> questions = new ArrayList<>();
 
-        String fileName = "..\\files\\Topics\\"+questionsFile+".txt";
+        String fileName = "..\\files\\Topics\\"+selectedTopic+"\\"+questionsFile+".txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             Question question = null;
