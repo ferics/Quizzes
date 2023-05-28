@@ -22,6 +22,8 @@ public class Quizzes extends JFrame {
     private final JButton startButton;
     private final JButton nextButton;
     private final JButton previousButton;
+    private final JButton flagQuestionButton;
+    private final JButton questionsNavButton;
 
     public Quizzes() {
         setTitle("Practice Exam");
@@ -44,6 +46,9 @@ public class Quizzes extends JFrame {
         startButton = new JButton("Start");
         nextButton = new JButton("Next");
         previousButton = new JButton("Previous");
+        flagQuestionButton = new JButton("Flag for Later");
+        questionsNavButton = new JButton("Questions Navigator");
+
 
         buttonPanel.add(startButton);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
@@ -51,6 +56,9 @@ public class Quizzes extends JFrame {
         startButton.addActionListener(e -> startQuiz());
         nextButton.addActionListener(e -> submitQuiz());
         previousButton.addActionListener(e -> goBackToPreviousQuestion());
+        flagQuestionButton.addActionListener(e -> flagQuestion());
+        questionsNavButton.addActionListener(e -> listAllQuestions());
+
 
         add(mainPanel);
 
@@ -152,6 +160,17 @@ public class Quizzes extends JFrame {
             }
         }
     }
+
+    private void flagQuestion() {
+        if (!selectedQuestions.get(currentIndex).getIsFlagged()){
+            selectedQuestions.get(currentIndex).setFlagged();
+            updateQuestionUI(selectedQuestions.get(++currentIndex));
+        }
+    }
+
+    private void listAllQuestions() {
+    }
+
     private void finishQuiz() {
         double percentageScore = (double) score / selectedQuestions.size() * 100;
 
@@ -234,10 +253,21 @@ public class Quizzes extends JFrame {
             optionsPanel.add(answerCheckBoxes[i]);
         }
 
-        JPanel buttonPanel = new JPanel(new FlowLayout()); // Use FlowLayout for the button panel
-        buttonPanel.add(previousButton);
-        if (currentIndex+1 == this.selectedQuestions.size()) { this.nextButton.setText("Submit All Answers"); } else { this.nextButton.setText("Next"); }
-        buttonPanel.add(nextButton);
+
+        if (currentIndex + 1 == this.selectedQuestions.size()) { this.nextButton.setText("Submit All Answers"); } else { this.nextButton.setText("Next"); } //Text of Next button changes dynamically if it is the last Question
+        flagQuestionButton.setEnabled(!selectedQuestions.get(currentIndex).getIsFlagged()); //Make flag question button disable after flagged
+
+        JPanel buttonPanel = new JPanel(new BorderLayout()); // Use BorderLayout for the button panel
+        JPanel leftSideButtonsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+
+        leftSideButtonsPanel.add(previousButton);
+        leftSideButtonsPanel.add(nextButton);
+        leftSideButtonsPanel.add(flagQuestionButton);
+        buttonPanel.add(leftSideButtonsPanel, BorderLayout.WEST);
+
+        JPanel rightButtonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        rightButtonPanel.add(questionsNavButton);
+        buttonPanel.add(rightButtonPanel, BorderLayout.EAST);
 
         getContentPane().removeAll();
         getContentPane().add(questionLabel, BorderLayout.NORTH);
@@ -311,16 +341,22 @@ class Question {
     private final String question;
     private List<String> options;
     private boolean answered;
+    private boolean isFlagged;
 
     public Question(String question) {
         this.question = question;
         this.options = new ArrayList<>();
         this.answered = false;
+        this.isFlagged = false;
     }
 
     public void setAnsweredCorrect(){ this.answered = true; }
 
     public void setAnsweredIncorrect(){ this.answered = false; }
+
+    public void setFlagged(){ this.isFlagged = true; }
+
+    public boolean getIsFlagged(){ return this.isFlagged; }
 
     public boolean getAnswered(){ return this.answered; }
 
