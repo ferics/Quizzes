@@ -1,40 +1,12 @@
-Q: In SAP Central Business Configuration, which activities can you perform in the Product-Specific Configuration Phase? (3 correct)
-1C. Add new sales organizations.
-2C. Add blocking reasons for billing.
-3C. Change approval thresholds.
-4. Modify building blocks.
-5. Create new scope items.
+Q: Which of the following Business Add-Ins (BAdls) are available for the Fiori app Create Internal Projects? (3 correct)
+1C. Check Authorization to Change Project Stage
+2. Project Element Determination
+3C. Send email
+4. Project Validation
+5C. Generate Project IDs
 
-Q: Which of the following can be transported using the Software Collection apps in SAP S/4HANA Cloud, public edition? (2 correct)
-1C. UI variants and changes
-2C. Custom business objects
-3. Custom business roles
-4. Migration projects
-
-Q: In SAP Central Business Configuration, which activities can you perform in the Product-Specific Configuration Phase? (3 correct)
-1C. Add new sales organizations.
-2C. Add blocking reasons for billing.
-3C. Change approval thresholds.
-4. Modify building blocks.
-5. Create new scope items.
-
-Q: In SAP Central Business Configuration, which activities can you perform in the Product-Specific Configuration Phase? (3 correct)
-1C. Add new sales organizations.
-2C. Add blocking reasons for billing.
-3C. Change approval thresholds.
-4. Modify building blocks.
-5. Create new scope items.
-
-Q: In SAP Central Business Configuration, which activities can you perform in the Product-Specific Configuration Phase? (3 correct)
-1C. Add new sales organizations.
-2C. Add blocking reasons for billing.
-3C. Change approval thresholds.
-4. Modify building blocks.
-5. Create new scope items.
-
-Q: In SAP Central Business Configuration, which activities can you perform in the Product-Specific Configuration Phase? (3 correct)
-1C. Add new sales organizations.
-2C. Add blocking reasons for billing.
-3C. Change approval thresholds.
-4. Modify building blocks.
-5. Create new scope items.
+Q: How are analytics capabilities built into SAP S/4HANA Cloud?
+1C. They are embedded in the same technical stack as the application
+2. They are installed on a dedicated SAP Fiori frontend server
+3. They are installed as an add-on to the application
+4. They are extended by the user to a dedicated SAP Fiori frontend server

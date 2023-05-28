@@ -5,6 +5,7 @@ idea/
 !**/src/main/**/out/
 !**/src/test/**/out/
 Quizzes.iml
+SAP.iml
 
 /files/jdk/
 

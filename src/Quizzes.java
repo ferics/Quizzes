@@ -23,6 +23,7 @@ public class Quizzes extends JFrame {
     private final JButton nextButton;
     private final JButton previousButton;
     private final JButton flagQuestionButton;
+    private final JButton unflagQuestionButton;
     private final JButton questionsNavButton;
 
     public Quizzes() {
@@ -44,9 +45,10 @@ public class Quizzes extends JFrame {
 
         JPanel buttonPanel = new JPanel();
         startButton = new JButton("Start");
-        nextButton = new JButton("Next");
-        previousButton = new JButton("Previous");
+        previousButton = new JButton("<< Previous");
+        nextButton = new JButton("Next >>");
         flagQuestionButton = new JButton("Flag for Later");
+        unflagQuestionButton = new JButton("Unflag Question");
         questionsNavButton = new JButton("Questions Navigator");
 
 
@@ -57,8 +59,8 @@ public class Quizzes extends JFrame {
         nextButton.addActionListener(e -> submitQuiz());
         previousButton.addActionListener(e -> goBackToPreviousQuestion());
         flagQuestionButton.addActionListener(e -> flagQuestion());
+        unflagQuestionButton.addActionListener(e -> unFlagQuestion());
         questionsNavButton.addActionListener(e -> listAllQuestions());
-
 
         add(mainPanel);
 
@@ -104,7 +106,6 @@ public class Quizzes extends JFrame {
         enableAnswerOptions(true);
         startButton.setEnabled(false);
         nextButton.setEnabled(true);
-        previousButton.setEnabled(false);
     }
 
     private void submitQuiz() {
@@ -152,20 +153,21 @@ public class Quizzes extends JFrame {
     }
 
     private void goBackToPreviousQuestion() {
-        currentIndex--;
-        if (currentIndex >= 0) {
-            updateQuestionUI(selectedQuestions.get(currentIndex));
-            if (currentIndex == 0) {
-                previousButton.setEnabled(false);
-            }
-        }
+        updateQuestionUI(selectedQuestions.get(--currentIndex));
     }
 
     private void flagQuestion() {
         if (!selectedQuestions.get(currentIndex).getIsFlagged()){
             selectedQuestions.get(currentIndex).setFlagged();
-            updateQuestionUI(selectedQuestions.get(++currentIndex));
+            selectedQuestions.get(currentIndex).repaintAndNotRandomiseOptions();
+            updateQuestionUI(selectedQuestions.get(currentIndex));
         }
+    }
+
+    private void unFlagQuestion(){
+        selectedQuestions.get(currentIndex).setUnflag();
+        selectedQuestions.get(currentIndex).repaintAndNotRandomiseOptions();
+        updateQuestionUI(selectedQuestions.get(currentIndex));
     }
 
     private void listAllQuestions() {
@@ -241,7 +243,7 @@ public class Quizzes extends JFrame {
         optionsPanel.setLayout(new GridLayout(question.getOptions().size(), 1, 0, 5)); // Adjust the spacing values here
 
         List<String> randomizedOptions = new ArrayList<>(question.getOptions());
-        Collections.shuffle(randomizedOptions);
+        if (question.isRandomiseOptions()){ Collections.shuffle(randomizedOptions); }
         question.setOptions(randomizedOptions);
 
         Font optionFont = UIManager.getFont("CheckBox.font").deriveFont(Font.PLAIN, 14); // Adjust the font size here
@@ -253,8 +255,8 @@ public class Quizzes extends JFrame {
             optionsPanel.add(answerCheckBoxes[i]);
         }
 
-
-        if (currentIndex + 1 == this.selectedQuestions.size()) { this.nextButton.setText("Submit All Answers"); } else { this.nextButton.setText("Next"); } //Text of Next button changes dynamically if it is the last Question
+        previousButton.setEnabled(currentIndex != 0) ;
+        if (currentIndex + 1 == this.selectedQuestions.size()) { this.nextButton.setText("Submit All Answers"); } else { this.nextButton.setText("Next >>"); } //Text of Next button changes dynamically if it is the last Question
         flagQuestionButton.setEnabled(!selectedQuestions.get(currentIndex).getIsFlagged()); //Make flag question button disable after flagged
 
         JPanel buttonPanel = new JPanel(new BorderLayout()); // Use BorderLayout for the button panel
@@ -262,7 +264,7 @@ public class Quizzes extends JFrame {
 
         leftSideButtonsPanel.add(previousButton);
         leftSideButtonsPanel.add(nextButton);
-        leftSideButtonsPanel.add(flagQuestionButton);
+        if (selectedQuestions.get(currentIndex).getIsFlagged()){ leftSideButtonsPanel.add(unflagQuestionButton); } else { leftSideButtonsPanel.add(flagQuestionButton); }
         buttonPanel.add(leftSideButtonsPanel, BorderLayout.WEST);
 
         JPanel rightButtonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
@@ -276,6 +278,11 @@ public class Quizzes extends JFrame {
         getContentPane().revalidate();
         getContentPane().repaint();
     }
+
+    private void repaintTheSameQuestionUI(Question question) {
+
+    }
+
 
     private void enableAnswerOptions(boolean enable) {
         if (answerCheckBoxes != null) {
@@ -342,39 +349,36 @@ class Question {
     private List<String> options;
     private boolean answered;
     private boolean isFlagged;
+    private boolean randomiseOptions;
 
     public Question(String question) {
         this.question = question;
         this.options = new ArrayList<>();
         this.answered = false;
         this.isFlagged = false;
+        this.randomiseOptions = true;
     }
 
     public void setAnsweredCorrect(){ this.answered = true; }
-
     public void setAnsweredIncorrect(){ this.answered = false; }
-
     public void setFlagged(){ this.isFlagged = true; }
-
+    public void setUnflag(){ this.isFlagged = false; }
     public boolean getIsFlagged(){ return this.isFlagged; }
 
+    public boolean isRandomiseOptions() { return randomiseOptions; }
+    public void repaintAndNotRandomiseOptions() { this.randomiseOptions = false; }
     public boolean getAnswered(){ return this.answered; }
-
     public void setOptions(List<String> randomisedOptions){
         options = randomisedOptions;
     }
-
     public String getQuestion() {
         return question;
     }
-
     public List<String> getOptions() {
         return options;
     }
-
     public void addOption(String option) {
         options.add(option);
     }
-
     public boolean isCorrectOption(int index) { return options.get(index).matches("C.*"); }
 }
