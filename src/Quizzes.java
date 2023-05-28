@@ -1,5 +1,8 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.geom.Ellipse2D;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -46,11 +49,10 @@ public class Quizzes extends JFrame {
         JPanel buttonPanel = new JPanel();
         startButton = new JButton("Start");
         previousButton = new JButton("<< Previous");
-        nextButton = new JButton("Next >>");
+        nextButton = new JButton();
         flagQuestionButton = new JButton("Flag for Later");
         unflagQuestionButton = new JButton("Unflag Question");
         questionsNavButton = new JButton("Questions Navigator");
-
 
         buttonPanel.add(startButton);
         mainPanel.add(buttonPanel, BorderLayout.SOUTH);
@@ -60,7 +62,7 @@ public class Quizzes extends JFrame {
         previousButton.addActionListener(e -> goBackToPreviousQuestion());
         flagQuestionButton.addActionListener(e -> flagQuestion());
         unflagQuestionButton.addActionListener(e -> unFlagQuestion());
-        questionsNavButton.addActionListener(e -> listAllQuestions());
+        questionsNavButton.addActionListener(e -> questionsNavigationUI());
 
         add(mainPanel);
 
@@ -139,17 +141,20 @@ public class Quizzes extends JFrame {
             }
         }
 
-        if (selectedCount == 0) {
-            JOptionPane.showMessageDialog(this, "Please select at least one option.", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
+
+
+//        if (selectedCount == 0) {
+//            JOptionPane.showMessageDialog(this, "Please select at least one option.", "Error", JOptionPane.ERROR_MESSAGE);
+//        } else {
             currentIndex++;
+            selectedQuestions.get(currentIndex).setAttempted();
             if (currentIndex < selectedQuestions.size()) {
                 updateQuestionUI(selectedQuestions.get(currentIndex));
                 previousButton.setEnabled(true);
             } else {
                 finishQuiz();
             }
-        }
+//        }
     }
 
     private void goBackToPreviousQuestion() {
@@ -159,18 +164,99 @@ public class Quizzes extends JFrame {
     private void flagQuestion() {
         if (!selectedQuestions.get(currentIndex).getIsFlagged()){
             selectedQuestions.get(currentIndex).setFlagged();
-            selectedQuestions.get(currentIndex).repaintAndNotRandomiseOptions();
+            selectedQuestions.get(currentIndex).doNotRandomiseOptionsOrder();
             updateQuestionUI(selectedQuestions.get(currentIndex));
         }
     }
 
     private void unFlagQuestion(){
         selectedQuestions.get(currentIndex).setUnflag();
-        selectedQuestions.get(currentIndex).repaintAndNotRandomiseOptions();
+        selectedQuestions.get(currentIndex).doNotRandomiseOptionsOrder();
         updateQuestionUI(selectedQuestions.get(currentIndex));
     }
 
-    private void listAllQuestions() {
+    private void questionsNavigationUI() { //fix the dynamic height
+        JFrame frame = new JFrame("Question Circles");
+        int circleSize = selectedQuestions.size();
+        int circleDiameter = 30;
+        int circleSpacing = 10;
+
+        int dialogHeight = 110;
+        if (selectedQuestions.size() > 10){
+            dialogHeight = 110 + ((selectedQuestions.size() - 10) / 10) * 40;
+        }
+
+        JDialog dialog = new JDialog(frame, "Questions", true);
+        dialog.setSize(425, dialogHeight);
+        dialog.setLocationRelativeTo(frame);
+
+        JPanel circlePanel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+                Graphics2D g2d = (Graphics2D) g.create();
+                g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+
+                int x = circleSpacing;
+                int y = circleSpacing + 20;
+                for (int i = 0; i < circleSize; i++) {
+                    if (x == 410) { x=10; y+=40; }
+                    Shape circle = new Ellipse2D.Double(x, y, circleDiameter, circleDiameter);
+                    if (selectedQuestions.get(i).getIsFlagged()){
+                        g2d.setColor(new Color(255, 183, 77));
+                    } else if (selectedQuestions.get(i).hasAttempted()) {
+                        g2d.setColor(new Color(145, 184, 89));
+                    } else {
+                        g2d.setColor(Color.WHITE);
+                    }
+                    g2d.fill(circle);
+                    g2d.setColor(Color.BLACK);
+                    if(i+1>9 && i+1<100){
+                        g2d.drawString(String.valueOf(i + 1), (x + circleDiameter / 2 - 3)-3, y + circleDiameter / 2 + 4);
+                    } else if (i+1 > 99) {
+                        g2d.drawString(String.valueOf(i + 1), (x + circleDiameter / 2 - 3)-7, y + circleDiameter / 2 + 4);
+                    } else {
+                        g2d.drawString(String.valueOf(i + 1), x + circleDiameter / 2 - 3, y + circleDiameter / 2 + 4);
+                    }
+                    x += circleDiameter + circleSpacing;
+                }
+
+                g2d.dispose();
+            }
+        };
+
+        circlePanel.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                int x = e.getX();
+                int y = e.getY();
+                int row = (y - circleSpacing - 20) / 40;
+                int col = (x - circleSpacing) / (circleDiameter + circleSpacing);
+                int questionIndex = col + row * 10; // Assuming 10 circles per row
+
+                // Calculate the center of the clicked circle
+                int circleCenterX = circleSpacing + col * (circleDiameter + circleSpacing) + circleDiameter / 2;
+                int circleCenterY = circleSpacing + 20 + row * 40 + circleDiameter / 2;
+
+                // Calculate the distance between the click point and the center of the circle
+                double distance = Math.sqrt(Math.pow(x - circleCenterX, 2) + Math.pow(y - circleCenterY, 2));
+
+                // Check if the click point is inside the circle
+                if (distance <= (double) circleDiameter / 2) {
+                    // Handle the click event for the question at questionIndex
+                    if (questionIndex >= 0 && questionIndex < selectedQuestions.size()) {
+                        currentIndex = questionIndex;
+                        dialog.dispose();
+                        updateQuestionUI(selectedQuestions.get(questionIndex));
+                    }
+                }
+            }
+        });
+
+        circlePanel.add(new JLabel("Select a question from the below"));
+
+        dialog.add(circlePanel);
+        dialog.setVisible(true);
     }
 
     private void finishQuiz() {
@@ -279,11 +365,6 @@ public class Quizzes extends JFrame {
         getContentPane().repaint();
     }
 
-    private void repaintTheSameQuestionUI(Question question) {
-
-    }
-
-
     private void enableAnswerOptions(boolean enable) {
         if (answerCheckBoxes != null) {
             for (JCheckBox checkBox : answerCheckBoxes) {
@@ -350,6 +431,7 @@ class Question {
     private boolean answered;
     private boolean isFlagged;
     private boolean randomiseOptions;
+    private boolean attempted;
 
     public Question(String question) {
         this.question = question;
@@ -357,6 +439,7 @@ class Question {
         this.answered = false;
         this.isFlagged = false;
         this.randomiseOptions = true;
+        this.attempted = false;
     }
 
     public void setAnsweredCorrect(){ this.answered = true; }
@@ -364,9 +447,10 @@ class Question {
     public void setFlagged(){ this.isFlagged = true; }
     public void setUnflag(){ this.isFlagged = false; }
     public boolean getIsFlagged(){ return this.isFlagged; }
-
+    public void setAttempted(){ this.attempted = true; }
+    public boolean hasAttempted(){ return this.attempted; }
     public boolean isRandomiseOptions() { return randomiseOptions; }
-    public void repaintAndNotRandomiseOptions() { this.randomiseOptions = false; }
+    public void doNotRandomiseOptionsOrder() { this.randomiseOptions = false; }
     public boolean getAnswered(){ return this.answered; }
     public void setOptions(List<String> randomisedOptions){
         options = randomisedOptions;
