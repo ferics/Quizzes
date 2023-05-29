@@ -172,11 +172,12 @@ public class Quizzes extends JFrame {
         int circleDiameter = 30;
         int circleSpacing = 10;
 
-        int dialogHeight = 110 + ((int) Math.ceil((double) selectedQuestions.size()/10) * 40);
+        int dialogHeight = 70 + ((int) Math.ceil((double) selectedQuestions.size()/10) * 40);
 
         JDialog dialog = new JDialog(frame, "Questions", true);
         dialog.setSize(425, dialogHeight);
         dialog.setLocationRelativeTo(frame);
+        dialog.setResizable(false);
 
         JPanel circlePanel = new JPanel() {
             @Override
