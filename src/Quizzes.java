@@ -111,15 +111,14 @@ public class Quizzes extends JFrame {
     }
 
     private void submitQuiz() {
-        int selectedCount = 0;
-
         boolean allCorrect = true;
         for (int i = 0; i < answerCheckBoxes.length; i++) {
             JCheckBox checkBox = answerCheckBoxes[i];
             boolean isCorrect = selectedQuestions.get(currentIndex).isCorrectOption(i);
 
             if (answerCheckBoxes[i].isSelected()) {
-                selectedCount++; }
+                selectedQuestions.get(currentIndex).setAttempted();
+            }
 
             if (checkBox.isSelected() != isCorrect) {
                 allCorrect = false;
@@ -141,20 +140,13 @@ public class Quizzes extends JFrame {
             }
         }
 
-
-
-//        if (selectedCount == 0) {
-//            JOptionPane.showMessageDialog(this, "Please select at least one option.", "Error", JOptionPane.ERROR_MESSAGE);
-//        } else {
-            currentIndex++;
-            selectedQuestions.get(currentIndex).setAttempted();
-            if (currentIndex < selectedQuestions.size()) {
-                updateQuestionUI(selectedQuestions.get(currentIndex));
-                previousButton.setEnabled(true);
-            } else {
-                finishQuiz();
-            }
-//        }
+        currentIndex++;
+        if (currentIndex < selectedQuestions.size()) {
+            updateQuestionUI(selectedQuestions.get(currentIndex));
+            previousButton.setEnabled(true);
+        } else {
+            finishQuiz();
+        }
     }
 
     private void goBackToPreviousQuestion() {
@@ -175,16 +167,12 @@ public class Quizzes extends JFrame {
         updateQuestionUI(selectedQuestions.get(currentIndex));
     }
 
-    private void questionsNavigationUI() { //fix the dynamic height
+    private void questionsNavigationUI() {
         JFrame frame = new JFrame("Question Circles");
-        int circleSize = selectedQuestions.size();
         int circleDiameter = 30;
         int circleSpacing = 10;
 
-        int dialogHeight = 110;
-        if (selectedQuestions.size() > 10){
-            dialogHeight = 110 + ((selectedQuestions.size() - 10) / 10) * 40;
-        }
+        int dialogHeight = 110 + ((int) Math.ceil((double) selectedQuestions.size()/10) * 40);
 
         JDialog dialog = new JDialog(frame, "Questions", true);
         dialog.setSize(425, dialogHeight);
@@ -199,7 +187,7 @@ public class Quizzes extends JFrame {
 
                 int x = circleSpacing;
                 int y = circleSpacing + 20;
-                for (int i = 0; i < circleSize; i++) {
+                for (int i = 0; i < selectedQuestions.size(); i++) {
                     if (x == 410) { x=10; y+=40; }
                     Shape circle = new Ellipse2D.Double(x, y, circleDiameter, circleDiameter);
                     if (selectedQuestions.get(i).getIsFlagged()){
@@ -212,7 +200,7 @@ public class Quizzes extends JFrame {
                     g2d.fill(circle);
                     g2d.setColor(Color.BLACK);
                     if(i+1>9 && i+1<100){
-                        g2d.drawString(String.valueOf(i + 1), (x + circleDiameter / 2 - 3)-3, y + circleDiameter / 2 + 4);
+                        g2d.drawString(String.valueOf(i + 1), (x + circleDiameter / 2 - 3)-4, y + circleDiameter / 2 + 4);
                     } else if (i+1 > 99) {
                         g2d.drawString(String.valueOf(i + 1), (x + circleDiameter / 2 - 3)-7, y + circleDiameter / 2 + 4);
                     } else {
@@ -290,7 +278,7 @@ public class Quizzes extends JFrame {
                     }
                     if (options.get(i).contains("C. ")){
                         resultMessage.append(options.get(i).replace("C. ", "")).append("\n");
-                    } else { resultMessage.append(options.get(i).replace(". ", "")).append("\n"); }
+                    } else { resultMessage.append(options.get(i).replace(" ", "")).append("\n"); }
                 }
             }
             JTextArea messageArea = new JTextArea(resultMessage.toString());
