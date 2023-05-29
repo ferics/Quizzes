@@ -264,21 +264,23 @@ public class Quizzes extends JFrame {
             JOptionPane.showMessageDialog(this, resultMessage.toString(), "Exam Results", JOptionPane.INFORMATION_MESSAGE, new ImageIcon(new ImageIcon("..\\files\\Images\\red-cross.png").getImage().getScaledInstance(50,50, SCALE_SMOOTH)));
         }
 
+        incorrectIndices = doubleCheckIncorrectQuestionsCount();
+
         if (!incorrectIndices.isEmpty()) {
-            resultMessage = new StringBuilder("You answered the following questions incorrectly:\n");
+            resultMessage = new StringBuilder(" You answered the following questions incorrectly:\n");
             for (int index : incorrectIndices) {
                 Question question = selectedQuestions.get(index);
-                resultMessage.append("\nQuestion: ").append(question.getQuestion()).append("\n");
+                resultMessage.append("\n Question: ").append(question.getQuestion()).append("\n");
                 List<String> options = question.getOptions();
                 for (int i = 0; i < options.size(); i++) {
                     if (question.isCorrectOption(i)) {
-                        resultMessage.append("[✔] ");
+                        resultMessage.append(" [✔]   ");
                     } else {
-                        resultMessage.append("[❌] ");
+                        resultMessage.append(" [❌]  ");
                     }
                     if (options.get(i).contains("C. ")){
                         resultMessage.append(options.get(i).replace("C. ", "")).append("\n");
-                    } else { resultMessage.append(options.get(i).replace(" ", "")).append("\n"); }
+                    } else { resultMessage.append(options.get(i).replace(". ", "")).append("\n"); }
                 }
             }
             JTextArea messageArea = new JTextArea(resultMessage.toString());
@@ -359,6 +361,16 @@ public class Quizzes extends JFrame {
                 checkBox.setEnabled(enable);
             }
         }
+    }
+
+    private List<Integer> doubleCheckIncorrectQuestionsCount(){
+        List<Integer> indices = new ArrayList<>();
+        for (int i = 0; i < selectedQuestions.size(); i++) {
+            if (!selectedQuestions.get(i).getAnswered()) {
+                indices.add(i);
+            }
+        }
+        return indices;
     }
 
     private List<Question> readQuestionsFromFile(String selectedTopic, String questionsFile) {
