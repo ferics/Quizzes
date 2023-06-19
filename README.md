@@ -7,6 +7,8 @@ This is a simple Java program that allows you to take a quiz by selecting answer
 To run this program, you need to have the following:
 
 - Java Development Kit (JDK) installed on your system.
+-- Link to download: https://download.oracle.com/java/20/archive/jdk-20.0.1_windows-x64_bin.zip
+-- Unzip it to `files\jdk\`. After extract, `java.exe` should be accessible via path: `..\files\jdk\bin\java.exe`
 - An integrated development environment (IDE) or a text editor to edit and run Java code.
 
 ## Installation
